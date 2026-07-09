@@ -1,4 +1,5 @@
 import { Vazirmatn } from "next/font/google";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
 const vazir = Vazirmatn({
@@ -20,7 +21,10 @@ export default function RootLayout({ children }) {
       dir="rtl"
       className={`${vazir.variable} h-full overflow-x-hidden antialiased`}
     >
-      <body className="bg-brand-1 flex min-h-screen flex-col">{children}</body>
+      <body className="bg-brand-1 flex min-h-screen flex-col">
+        {children}
+        <SpeedInsights />
+      </body>
     </html>
   );
 }
