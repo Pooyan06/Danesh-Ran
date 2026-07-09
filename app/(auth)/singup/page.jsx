@@ -13,6 +13,10 @@ import {
 import Button from "@/app/_components/Button";
 import Link from "next/link";
 
+export const metadata = {
+  title: "ثبت نام در دانشران",
+};
+
 export default function page() {
   return (
     <div className="border-brand-7 my-10 flex w-4/6 overflow-hidden rounded-2xl border shadow-2xl">

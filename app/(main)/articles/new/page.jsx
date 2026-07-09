@@ -17,6 +17,10 @@ import SupportSection from "@/app/_pages/articles/new/SupportSection";
 import TagsSection from "@/app/_pages/articles/new/TagsSection";
 import WritingTips from "@/app/_pages/articles/new/WritingTips";
 
+export const metadata = {
+  title: "نوشتن مقاله جدید",
+};
+
 export default function page() {
   return (
     <section className="mt-18 mb-10">

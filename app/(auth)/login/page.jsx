@@ -11,6 +11,10 @@ import {
 import Button from "@/app/_components/Button";
 import Link from "next/link";
 
+export const metadata = {
+  title: "ورود به دانشران",
+};
+
 export default function page() {
   return (
     <div className="border-brand-7 my-10 flex w-3/5 overflow-hidden rounded-2xl border shadow-2xl">

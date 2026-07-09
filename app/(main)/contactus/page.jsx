@@ -20,6 +20,10 @@ import {
 import Button from "@/app/_components/Button";
 import Input from "@/app/_components/Input";
 
+export const metadata = {
+  title: "تماس با ما",
+};
+
 export default function page() {
   return (
     <section className="mt-18 mb-10 space-y-10">

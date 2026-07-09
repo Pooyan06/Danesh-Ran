@@ -14,7 +14,7 @@ export default function AuthHeader() {
     <header className="bg-brand-1 border-brand-7 flex w-full items-center justify-between border-b px-15 py-3">
       <div className="flex-1/3">
         <Link className="text-brand-2 flex items-center gap-2" href="/">
-          <Image src={Logo} width={60} height={60} alt="دانش ران" />
+          <Image src={Logo} width={60} height={60} alt="دانشران" />
           <h1 className="text-2xl font-bold"> دانشران</h1>
         </Link>
       </div>

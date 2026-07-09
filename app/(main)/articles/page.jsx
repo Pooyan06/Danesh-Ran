@@ -6,6 +6,10 @@ import SearchBar from "@/app/_components/SearchBar";
 import ArticlesFilter from "@/app/_pages/articles/ArticlesFilter";
 import ArticlesPagination from "@/app/_pages/articles/ArticlesPagination";
 
+export const metadata = {
+  title: "مقالات جدید",
+};
+
 const articles = [
   {
     id: 1,

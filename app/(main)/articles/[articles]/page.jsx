@@ -447,6 +447,43 @@ const articles = [
   },
 ];
 
+export async function generateMetadata({ params }) {
+  const { articles: articleIdParam } = await params;
+  const articleId = Number(articleIdParam);
+
+  console.log(articleId);
+
+  const article = articles.find((a) => a.id === articleId);
+
+  if (!article) {
+    return {
+      title: "مقاله یافت نشدن",
+      description: "مقاله مورد نظر در دانشران یافت نشد",
+    };
+  }
+
+  return {
+    title: `${article.title} | دانشران`,
+    description: article.abstract,
+    keywords: [article.tag, "مقاله علمی", "دانشران", "پژوهش"],
+    authors: [{ name: article.author }],
+    openGraph: {
+      title: article.title,
+      description: article.abstract,
+      type: "article",
+      publishedTime: article.date,
+      authors: [article.author],
+      tags: [article.tag],
+      siteName: "دانشران",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: article.title,
+      description: article.abstract,
+    },
+  };
+}
+
 export async function generateStaticParams() {
   return articles.map((article) => ({
     articles: String(article.id),

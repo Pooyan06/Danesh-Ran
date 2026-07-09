@@ -14,6 +14,10 @@ import {
 import Button from "@/app/_components/Button";
 import Link from "next/link";
 
+export const metadata = {
+  title: "درباره ما",
+};
+
 export default function page() {
   return (
     <section className="mt-18 mb-10 space-y-10">

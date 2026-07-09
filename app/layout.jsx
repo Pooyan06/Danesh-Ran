@@ -1,5 +1,6 @@
 import { Vazirmatn } from "next/font/google";
 import "./globals.css";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const vazir = Vazirmatn({
   subsets: ["arabic"],
@@ -9,7 +10,21 @@ const vazir = Vazirmatn({
 
 export const metadata = {
   title: {
-    default: " دانش ران",
+    default: "دانشران | محیطی برای انتشار مقالات علمی",
+    template: "دانشران | %s",
+  },
+  description:
+    "دانشران، پلتفرمی جامع برای انتشار، اشتراک‌گذاری و دسترسی به مقالات علمی در ایران",
+  keywords: ["مقالات علمی", "انتشار مقاله", "پژوهش", "دانشران", "علمی"],
+  authors: [{ name: "پویان فرهادی" }],
+  creator: "دانشران",
+  publisher: "دانشران",
+  robots: "index, follow",
+  openGraph: {
+    title: "دانشران | محیطی برای انتشار مقالات علمی",
+    description: "به جامعه علمی دانشران بپیوندید و مقالات خود را منتشر کنید",
+    type: "website",
+    locale: "fa_IR",
   },
 };
 
@@ -21,6 +36,7 @@ export default function RootLayout({ children }) {
       className={`${vazir.variable} h-full overflow-x-hidden antialiased`}
     >
       <body className="bg-brand-1 flex min-h-screen flex-col">{children}</body>
+      <SpeedInsights />
     </html>
   );
 }
