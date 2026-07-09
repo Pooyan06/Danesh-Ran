@@ -1,6 +1,7 @@
 import { Vazirmatn } from "next/font/google";
 import "./globals.css";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/next";
 
 const vazir = Vazirmatn({
   subsets: ["arabic"],
@@ -37,6 +38,7 @@ export default function RootLayout({ children }) {
     >
       <body className="bg-brand-1 flex min-h-screen flex-col">{children}</body>
       <SpeedInsights />
+      <Analytics />
     </html>
   );
 }
