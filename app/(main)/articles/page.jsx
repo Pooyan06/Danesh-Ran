@@ -1,9 +1,10 @@
-import PostArticle from "./PostArticle";
+import { FileTextIcon } from "@/app/_assets/Icons";
 import ArticleList from "@/app/_components/ArticleList";
 import HotTopics from "@/app/_components/HotTopics";
 import PopularAuthors from "@/app/_components/PopularAuthors";
-import { FileTextIcon } from "@/app/_assets/Icons";
-import Link from "next/link";
+import SearchBar from "@/app/_components/SearchBar";
+import ArticlesFilter from "@/app/_pages/articles/ArticlesFilter";
+import ArticlesPagination from "@/app/_pages/articles/ArticlesPagination";
 
 const articles = [
   {
@@ -74,22 +75,38 @@ const articles = [
   },
 ];
 
-export default function ContentSection() {
+export default function page() {
   return (
-    <section className="flex min-h-screen gap-8">
-      <div className="flex-3/4 space-y-5">
-        <div className="text-brand-2 flex items-center gap-1">
-          <FileTextIcon size={1.3} />
-          <p className="font-semibold">مقالات جدید</p>
+    <section className="mt-18 mb-10">
+      <div className="flex w-full flex-col items-center justify-center gap-5 text-center">
+        <div>
+          <h4 className="text-brand-2 flex gap-3 text-[2rem] font-bold">
+            <FileTextIcon />
+            مقالات جدید
+          </h4>
         </div>
-        <ArticleList articles={articles} />
-        <Link href="/articles/new">
-          <PostArticle />
-        </Link>
+        <p className="text-brand-4 font-normal">
+          جدیدترین دستاوردهای علمی و پژوهشی جامعه دانشران را مرور کنید.
+        </p>
+        <hr className="text-brand-7 w-screen" />
       </div>
-      <div className="sticky top-20 h-fit flex-1/4 space-y-5">
-        <PopularAuthors />
-        <HotTopics />
+      <SearchBar />
+      <div className="mt-10 flex min-h-screen gap-8">
+        <div className="flex-3/4 space-y-5">
+          <div className="text-brand-2 flex items-center gap-1">
+            <FileTextIcon size={1.3} />
+            <p className="text-lg font-semibold">جدید ترین مقالات</p>
+          </div>
+          <ArticlesFilter />
+          <hr className="text-brand-7 w-full" />
+          <ArticleList articles={articles} />
+          <hr className="text-brand-7 w-full" />
+          <ArticlesPagination />
+        </div>
+        <div className="sticky top-20 h-fit flex-1/4 space-y-5">
+          <PopularAuthors />
+          <HotTopics />
+        </div>
       </div>
     </section>
   );

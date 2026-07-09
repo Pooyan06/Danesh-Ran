@@ -1,6 +1,7 @@
-import Button from "@/app/_components/Button";
 import PentoolIcon from "./PentoolIcon";
-import SearchBar from "./SearchBar";
+import Button from "@/app/_components/Button";
+import SearchBar from "@/app/_components/SearchBar";
+import Link from "next/link";
 
 export default function HeroSection() {
   return (
@@ -18,13 +19,19 @@ export default function HeroSection() {
       </p>
       <div className="w-full">
         <div className="space-x-4">
-          <Button type={1}>شروع انتشار</Button>
-          <Button type={2}>
-            <p className="font-medium">مشاهده مقاله</p>
-          </Button>
+          <Link href="/articles/new">
+            <Button type={1}>شروع انتشار</Button>
+          </Link>
+          <Link href="/articles">
+            <Button type={2}>
+              <p className="font-medium">مشاهده مقاله</p>
+            </Button>
+          </Link>
         </div>
       </div>
-      <PentoolIcon />
+      <Link href="/articles/new">
+        <PentoolIcon />
+      </Link>
       <SearchBar />
     </section>
   );

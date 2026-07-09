@@ -2,14 +2,16 @@
 
 @theme {
   --color-brand-1: #fefaf3;
-  --color-brand-2: #1e5d5c;
+  --color-brand-2: #1c5554;
   --color-brand-3: #c9a87b;
   --color-brand-4: #716657;
   --color-brand-5: #f7f2eb;
   --color-brand-6: #856209;
   --color-brand-7: #e6dfd3;
   --color-brand-8: #514a3f;
-  --color-brand-9: #1e5d5c0e;
+  --color-brand-9: #edf1f1;
+  --color-brand-10: #ced8d8;
+  --color-brand-11: #1e5d5c0e;
 }
 
 @layer base {
@@ -19,4 +21,137 @@
     padding: 0;
     font-family: var(--font-vazir), sans-serif;
   }
+}
+/* ---------- Quill ---------- */
+
+.quill-wrapper {
+  overflow: hidden;
+  border-radius: 16px;
+  border: 1px solid var(--color-brand-7);
+  transition: all 0.2s ease;
+}
+
+.quill-wrapper:focus-within {
+  border-color: var(--color-brand-2);
+}
+
+/* حذف Borderهای پیش فرض */
+
+.quill-wrapper .ql-snow,
+.quill-wrapper .ql-container,
+.quill-wrapper .ql-toolbar {
+  border: none !important;
+}
+
+/* Toolbar */
+
+.quill-wrapper .ql-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+
+  padding: 0.85rem 1rem;
+
+  border-bottom: 1px solid var(--color-brand-7) !important;
+}
+
+.quill-wrapper .ql-toolbar .ql-formats {
+  margin: 0;
+  margin-left: 0.5rem;
+}
+
+.quill-wrapper .ql-toolbar button,
+.quill-wrapper .ql-toolbar .ql-picker-label {
+  border-radius: 3px;
+  transition: 0.15s;
+}
+
+.quill-wrapper .ql-toolbar .ql-picker-label::before {
+  position: absolute;
+  padding: 1px;
+  left: 0;
+}
+
+.quill-wrapper .ql-toolbar button:hover,
+.quill-wrapper .ql-toolbar .ql-picker-label:hover {
+  background: var(--color-brand-11);
+}
+
+.quill-wrapper .ql-toolbar button.ql-active,
+.quill-wrapper .ql-toolbar .ql-picker-label.ql-active {
+  background: var(--color-brand-11);
+}
+
+/* Dropdown */
+
+.quill-wrapper .ql-picker-options {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Editor */
+
+.quill-wrapper .ql-container {
+  min-height: 340px;
+  background: var(--color-brand-1);
+}
+
+.quill-wrapper .ql-editor {
+  min-height: 340px;
+
+  direction: rtl;
+  text-align: right;
+
+  padding: 1.5rem;
+
+  color: var(--color-brand-8);
+
+  line-height: 2;
+  font-size: 0.95rem;
+}
+
+.quill-wrapper .ql-editor.ql-blank::before {
+  left: auto;
+  right: 24px;
+  color: var(--color-brand-4);
+  opacity: 0.6;
+  font-style: normal;
+}
+
+/* ---------- Scrollbar ---------- */
+
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-brand-5);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    var(--color-brand-3),
+    var(--color-brand-2)
+  );
+  border: 3px solid var(--color-brand-5);
+  border-radius: 999px;
+  transition: background 0.2s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #d6b489, #174847);
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--color-brand-5);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-brand-2) var(--color-brand-5);
 }

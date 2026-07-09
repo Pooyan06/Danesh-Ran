@@ -62,13 +62,13 @@ export default function Footer() {
           </p>
         </div>
         <div className="flex gap-3">
-          <p className="text-brand-2 bg-brand-9 hover:text-brand-1 hover:bg-brand-2 cursor-pointer rounded-full p-2 duration-300">
+          <p className="text-brand-2 bg-brand-11 hover:text-brand-1 hover:bg-brand-2 cursor-pointer rounded-full p-2 duration-300">
             <TelegramIcon size={1.3} />
           </p>
-          <p className="text-brand-2 bg-brand-9 hover:text-brand-1 hover:bg-brand-2 cursor-pointer rounded-full p-2 duration-300">
+          <p className="text-brand-2 bg-brand-11 hover:text-brand-1 hover:bg-brand-2 cursor-pointer rounded-full p-2 duration-300">
             <InstagramIcon size={1.3} />
           </p>
-          <p className="text-brand-2 bg-brand-9 hover:text-brand-1 hover:bg-brand-2 cursor-pointer rounded-full p-2 duration-300">
+          <p className="text-brand-2 bg-brand-11 hover:text-brand-1 hover:bg-brand-2 cursor-pointer rounded-full p-2 duration-300">
             <LinkedinIcon size={1.3} />
           </p>
         </div>

@@ -1,5 +1,5 @@
+import AuthorsCards from "../_pages/home/AuthorsCards";
 import { UsersIcon } from "@/app/_assets/Icons";
-import AuthorsCards from "./AuthorsCards";
 
 export default function PopularAuthors() {
   const authors = [

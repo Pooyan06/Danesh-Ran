@@ -1,7 +1,5 @@
 import { Vazirmatn } from "next/font/google";
 import "./globals.css";
-import Header from "./_components/Header";
-import Footer from "./_components/Footer";
 
 const vazir = Vazirmatn({
   subsets: ["arabic"],
@@ -11,8 +9,7 @@ const vazir = Vazirmatn({
 
 export const metadata = {
   title: {
-    template: "",
-    default: "",
+    default: " دانش ران",
   },
 };
 
@@ -21,14 +18,9 @@ export default function RootLayout({ children }) {
     <html
       lang="fa"
       dir="rtl"
-      className={`${vazir.variable} h-full antialiased`}
+      className={`${vazir.variable} h-full overflow-x-hidden antialiased`}
     >
-      <body className="bg-brand-1 flex min-h-screen flex-col">
-        <Header />
-        <div className="h-10"></div>
-        {children}
-        <Footer />
-      </body>
+      <body className="bg-brand-1 flex min-h-screen flex-col">{children}</body>
     </html>
   );
 }
