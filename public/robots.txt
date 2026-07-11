@@ -1,0 +1,8 @@
+# public/robots.txt
+User-agent: *
+Allow: /
+Disallow: /login
+Disallow: /singup
+Disallow: /api/
+
+Sitemap: https://daneshran.vercel.app/sitemap.xml
