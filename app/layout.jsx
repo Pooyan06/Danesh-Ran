@@ -18,6 +18,9 @@ export const metadata = {
   },
   description:
     "دانشران، پلتفرمی جامع برای انتشار، اشتراک‌گذاری و دسترسی به مقالات علمی در ایران",
+  verification: {
+    google: "WcAKYzz08Y_4MVzCgVQxAOWTcFbrJqRAqVO--BlE238",
+  },
   openGraph: {
     title: "دانشران | محیطی برای انتشار مقالات علمی",
     description:
