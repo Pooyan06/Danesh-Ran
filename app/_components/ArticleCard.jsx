@@ -20,25 +20,25 @@ export default function ArticleCard({
   return (
     <div className="border-brand-7 w-full space-y-3 rounded-2xl border bg-white p-4 sm:space-y-4 sm:p-5">
       <div>
-        <p className="bg-brand-5 text-brand-4 inline rounded-full p-1.5 text-[0.75rem] font-medium sm:p-2 sm:text-[0.9rem]">
+        <span className="bg-brand-5 text-brand-4 inline rounded-full p-1.5 text-[0.75rem] font-medium sm:p-2 sm:text-[0.9rem]">
           {tag}
-        </p>
+        </span>
       </div>
       <div>
         <Link href={`/articles/${id}`}>
-          <h3 className="inline text-base font-bold sm:text-lg md:text-xl">
+          <h2 className="inline text-base font-bold sm:text-lg md:text-xl">
             {title}
-          </h3>
+          </h2>
         </Link>
       </div>
       <div className="flex flex-wrap gap-2 text-[0.8rem] sm:gap-0 sm:space-x-2 sm:text-[0.9rem]">
         <div className="text-brand-4 flex items-center gap-1">
           <UserIcon size={1.1} />
-          <p>{author}</p>
+          <span>{author}</span>
         </div>
         <div className="text-brand-4 flex items-center gap-1">
           <DateRangeIcon />
-          <p>{date}</p>
+          <span>{date}</span>
         </div>
       </div>
       <div>
@@ -48,20 +48,22 @@ export default function ArticleCard({
         <div className="flex space-x-5 text-[0.8rem] sm:text-[0.9rem]">
           <div className="text-brand-4 flex items-center gap-1">
             <EyeIcon size={1} />
-            <p>{views}</p>
+            <span>{views}</span>
           </div>
           <div className="flex items-center gap-1 text-red-400">
             <HeartIcon size={1} />
-            <p>{likes}</p>
+            <span>{likes}</span>
           </div>
         </div>
-        <Link href={`/articles/${id}`}>
-          <div className="group text-brand-2 hover:text-brand-3 flex cursor-pointer items-center space-x-2 duration-300">
-            <p className="text-sm font-semibold transition-transform duration-300 group-hover:translate-x-1 sm:text-base">
-              ادامه مطلب
-            </p>
-            <ArrowIcon size={1} />
-          </div>
+        <Link
+          href={`/articles/${id}`}
+          className="group text-brand-2 hover:text-brand-3 flex cursor-pointer items-center gap-2 duration-300"
+          aria-label={`مطالعه ادامه مطلب مقاله ${title}`}
+        >
+          <span className="text-sm font-semibold transition-transform duration-300 group-hover:translate-x-1 sm:text-base">
+            ادامه مطلب
+          </span>
+          <ArrowIcon size={1} />
         </Link>
       </div>
     </div>

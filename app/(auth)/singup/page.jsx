@@ -12,8 +12,45 @@ import {
 import Button from "@/app/_components/Button";
 import Link from "next/link";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+
 export const metadata = {
   title: "ثبت نام در دانشران",
+  description:
+    "در دانشران ثبت نام کنید و به جامعه پژوهشگران ایران بپیوندید. مقالات خود را منتشر کنید و از بازخورد متخصصان بهره‌مند شوید.",
+  keywords: [
+    "ثبت نام",
+    "عضویت",
+    "ایجاد حساب کاربری",
+    "دانشران",
+    "ثبت نام دانشران",
+  ],
+  authors: [{ name: "پویان فرهادی" }],
+  robots: "noindex, follow",
+  openGraph: {
+    title: "ثبت نام در دانشران | به جامعه پژوهشگران بپیوندید",
+    description:
+      "در دانشران ثبت نام کنید و به جامعه پژوهشگران ایران بپیوندید. مقالات خود را منتشر کنید و از بازخورد متخصصان بهره‌مند شوید.",
+    type: "website",
+    locale: "fa_IR",
+    siteName: "دانشران",
+    url: `${siteUrl}/singup`,
+    images: [
+      {
+        url: `${siteUrl}/daneshran.webp`,
+        width: 1200,
+        height: 630,
+        alt: "ثبت نام در دانشران",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ثبت نام در دانشران | به جامعه پژوهشگران بپیوندید",
+    description:
+      "در دانشران ثبت نام کنید و به جامعه پژوهشگران ایران بپیوندید. مقالات خود را منتشر کنید و از بازخورد متخصصان بهره‌مند شوید.",
+    images: [`${siteUrl}/daneshran.webp`],
+  },
 };
 
 export default function page() {
@@ -52,7 +89,7 @@ export default function page() {
         </div>
       </div>
       <div className="flex flex-1/2 flex-col justify-center gap-2 bg-white p-6 sm:p-8 md:p-10">
-        <p className="text-xl font-bold text-gray-800 sm:text-2xl">ثبت‌نام</p>
+        <h2 className="text-xl font-bold text-gray-800 sm:text-2xl">ثبت‌نام</h2>
         <p className="text-xs text-gray-500 sm:text-sm">
           برای عضویت، اطلاعات زیر را تکمیل کنید.
         </p>

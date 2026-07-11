@@ -85,7 +85,7 @@ export default function page() {
       <div className="flex w-full flex-col items-center justify-center gap-3 text-center sm:gap-5">
         <div>
           <h4 className="text-brand-2 flex gap-2 text-[1.6rem] font-bold sm:gap-3 sm:text-[2rem]">
-            <FileTextIcon size={1.6} />
+            <FileTextIcon size={1.3} />
             مقالات جدید
           </h4>
         </div>

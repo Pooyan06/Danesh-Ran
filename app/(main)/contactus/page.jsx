@@ -20,8 +20,45 @@ import {
 import Button from "@/app/_components/Button";
 import Input from "@/app/_components/Input";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+
 export const metadata = {
-  title: "تماس با ما",
+  title: "دانشران",
+  description:
+    "با تیم پشتیبانی دانشران در ارتباط باشید. سوالات، نظرات و پیشنهادهای خود را با ما در میان بگذارید.",
+  keywords: [
+    "تماس با دانشران",
+    "پشتیبانی دانشران",
+    "ارتباط با ما",
+    "آدرس دانشران",
+    "تلفن دانشران",
+    "ایمیل دانشران",
+  ],
+  authors: [{ name: "پویان فرهادی" }],
+  openGraph: {
+    title: "تماس با ما | دانشران",
+    description:
+      "با تیم پشتیبانی دانشران در ارتباط باشید. سوالات، نظرات و پیشنهادهای خود را با ما در میان بگذارید.",
+    type: "website",
+    locale: "fa_IR",
+    siteName: "دانشران",
+    url: `${siteUrl}/contactus`,
+    images: [
+      {
+        url: `${siteUrl}/daneshran.webp`,
+        width: 1200,
+        height: 630,
+        alt: "تماس با دانشران",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "تماس با ما | دانشران",
+    description:
+      "با تیم پشتیبانی دانشران در ارتباط باشید. سوالات، نظرات و پیشنهادهای خود را با ما در میان بگذارید.",
+    images: [`${siteUrl}/daneshran.webp`],
+  },
 };
 
 export default function page() {
@@ -45,9 +82,11 @@ function ContactHero() {
   return (
     <div className="flex flex-col items-center justify-center gap-4 sm:gap-8">
       <div className="bg-brand-2 flex h-16 w-16 items-center justify-center rounded-full text-2xl text-white sm:h-18 sm:w-18 sm:text-3xl">
-        <PhoneCallIcon size={1.6} />
+        <PhoneCallIcon size={1.3} />
       </div>
-      <p className="text-brand-2 text-2xl font-bold sm:text-4xl">تماس با ما</p>
+      <h1 className="text-brand-2 text-2xl font-bold sm:text-4xl">
+        تماس با ما
+      </h1>
       <p className="text-brand-4 max-w-full px-2 text-center text-sm sm:max-w-150 sm:px-0 sm:text-base">
         ما همواره پاسخگوی سوالات، نظرات و پیشنهادهای شما هستیم.
       </p>
@@ -61,7 +100,7 @@ function ContactForm() {
       <div>
         <div className="flex items-center gap-2">
           <MessageIcon size={1.4} />
-          <p className="text-lg font-semibold sm:text-xl">ارسال پیام</p>
+          <h2 className="text-lg font-semibold sm:text-xl">ارسال پیام</h2>
         </div>
         <p className="text-brand-4 mt-2 text-[0.8rem] sm:mt-3 sm:text-[0.9rem]">
           پس از دریافت، در سریع‌ترین زمان ممکن پاسخ خواهیم داد.
@@ -113,7 +152,7 @@ function ContactInfo() {
       <div>
         <div className="text-brand-2 flex items-center gap-2">
           <InfoIcon size={1.4} />
-          <p className="text-lg font-semibold sm:text-xl">ارسال پیام</p>
+          <h2 className="text-lg font-semibold sm:text-xl">اطلاعات تماس</h2>
         </div>
       </div>
       <div className="mt-4 flex items-center gap-3 sm:mt-8">
@@ -167,7 +206,7 @@ function ContactSocial() {
     <div className="border-brand-7 space-y-4 rounded-xl border bg-white p-6 sm:space-y-6 sm:p-8 lg:p-10">
       <div className="text-brand-2 flex items-center gap-2">
         <ShareIcon size={1.5} />
-        <p className="text-lg font-semibold sm:text-xl">شبکه‌های اجتماعی</p>
+        <h2 className="text-lg font-semibold sm:text-xl">شبکه‌های اجتماعی</h2>
       </div>
       <div className="flex flex-wrap gap-2 sm:gap-0 sm:space-x-3">
         <Button size="small" type={2}>
@@ -194,9 +233,9 @@ function ContactMap() {
         <MapIcon size={1.4} />
       </div>
       <div>
-        <p className="text-center text-sm font-semibold sm:text-base">
+        <h3 className="text-center text-sm font-semibold sm:text-base">
           موقعیت مکانی دانشران
-        </p>
+        </h3>
         <p className="text-brand-4 mt-1 text-center text-xs opacity-80 sm:mt-2 sm:text-sm">
           تهران، خیابان انقلاب، پلاک ۱۲۳
         </p>

@@ -28,15 +28,20 @@ export default function CategorySection() {
   const [selectedCategory, setSelectedCategory] = useState(null);
 
   return (
-    <div>
-      <p className="mb-2 text-xs font-medium sm:mb-3 sm:text-sm">
+    <fieldset>
+      <legend className="mb-2 text-xs font-medium sm:mb-3 sm:text-sm">
         عنوان دسته بندی <span className="text-red-600">*</span>
-      </p>
+      </legend>
 
-      <div className="grid grid-cols-2 gap-2 sm:grid-cols-4 sm:gap-3">
+      <div
+        className="grid grid-cols-2 gap-2 sm:grid-cols-4 sm:gap-3"
+        role="radiogroup"
+        aria-label="انتخاب دسته بندی مقاله"
+      >
         {categories.map((category) => (
           <CategoryCard
             key={category.id}
+            id={category.id}
             title={category.title}
             icon={category.icon}
             active={selectedCategory === category.id}
@@ -46,11 +51,11 @@ export default function CategorySection() {
 
         <input type="hidden" name="categoryId" value={selectedCategory ?? ""} />
       </div>
-    </div>
+    </fieldset>
   );
 }
 
-function CategoryCard({ title, icon, active, onClick }) {
+function CategoryCard({ id, title, icon, active, onClick }) {
   return (
     <button
       type="button"
@@ -60,11 +65,15 @@ function CategoryCard({ title, icon, active, onClick }) {
           ? "bg-brand-11 border-brand-2 "
           : "bg-brand-1 border-brand-7 hover:bg-brand-5 hover:border-brand-6"
       }`}
+      role="radio"
+      aria-checked={active}
+      aria-label={`انتخاب دسته ${title}`}
+      tabIndex={active ? 0 : -1}
     >
       <div className="scale-90 sm:scale-100">{icon}</div>
-      <p className="text-brand-4 text-[0.65rem] font-semibold sm:text-[0.8rem]">
+      <span className="text-brand-4 text-[0.65rem] font-semibold sm:text-[0.8rem]">
         {title}
-      </p>
+      </span>
     </button>
   );
 }

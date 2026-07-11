@@ -33,42 +33,53 @@ export default function TagsSection() {
   }
 
   return (
-    <div>
-      <p className="mb-2 text-xs font-medium sm:mb-3 sm:text-sm">کلمات کلیدی</p>
+    <fieldset>
+      <legend className="mb-2 text-xs font-medium sm:mb-3 sm:text-sm">
+        کلمات کلیدی
+      </legend>
 
       <Input
+        id="tags-input"
         placeholder="کلمه را تایپ کنید و Enter بزنید..."
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
         onKeyDown={handleKeyDown}
+        aria-label="ورودی کلمات کلیدی"
+        aria-describedby="tags-hint"
       />
 
-      <p className="text-brand-4 mt-2 flex items-center gap-1 text-[0.7rem] sm:mt-3 sm:text-[0.8rem]">
+      <p
+        id="tags-hint"
+        className="text-brand-4 mt-2 flex items-center gap-1 text-[0.7rem] sm:mt-3 sm:text-[0.8rem]"
+      >
         <InfoIcon size={1.5} />
         برای ثبت هر کلمه کلیدی، Enter یا کاما را بزنید — حداکثر ۸ کلمه
       </p>
 
       {tags.length > 0 && (
-        <div className="mt-3 flex flex-wrap gap-1.5 sm:mt-4 sm:gap-2">
+        <ul
+          className="mt-3 flex flex-wrap gap-1.5 sm:mt-4 sm:gap-2"
+          aria-label="لیست کلمات کلیدی"
+        >
           {tags.map((tag) => (
-            <button
-              key={tag}
-              type="button"
-              className="bg-brand-5 text-brand-2 flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-xs transition sm:gap-2 sm:px-3 sm:py-1 sm:text-sm"
-            >
-              <span>{tag}</span>
-              <span
-                className="hover:text-brand-2 text-brand-4 cursor-pointer text-sm leading-none duration-150 sm:text-base"
-                onClick={() => removeTag(tag)}
-              >
-                <XIcon size={1.2} />
+            <li key={tag} className="list-none">
+              <span className="bg-brand-5 text-brand-2 flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-xs transition sm:gap-2 sm:px-3 sm:py-1 sm:text-sm">
+                <span>{tag}</span>
+                <button
+                  type="button"
+                  className="hover:text-brand-2 text-brand-4 cursor-pointer text-sm leading-none duration-150 sm:text-base"
+                  onClick={() => removeTag(tag)}
+                  aria-label={`حذف کلمه کلیدی ${tag}`}
+                >
+                  <XIcon size={1.2} />
+                </button>
               </span>
-            </button>
+            </li>
           ))}
-        </div>
+        </ul>
       )}
 
       <input type="hidden" name="tags" value={JSON.stringify(tags)} />
-    </div>
+    </fieldset>
   );
 }

@@ -3,6 +3,10 @@ export default function Button({
   onClick,
   type = 1,
   size = "default",
+  className = "",
+  ariaLabel,
+  disabled = false,
+  ...props
 }) {
   const types = {
     1: "bg-brand-2 text-white border-2 border-brand-2 hover:shadow-[inset_0_0px_100px_rgba(0,0,0,0.1)]",
@@ -23,10 +27,13 @@ export default function Button({
 
   return (
     <button
-      className={`${types[type] || types[1]} ${sizes[size] || sizes.default} cursor-pointer font-medium transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-50`}
+      className={`${types[type] || types[1]} ${sizes[size] || sizes.default} ${className} cursor-pointer font-medium transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-50`}
       onClick={onClick}
+      disabled={disabled}
+      aria-label={ariaLabel}
+      {...props}
     >
-      <div className="flex items-center justify-center gap-1">{children}</div>
+      <span className="flex items-center justify-center gap-1">{children}</span>
     </button>
   );
 }

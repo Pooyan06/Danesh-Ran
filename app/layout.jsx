@@ -9,6 +9,8 @@ const vazir = Vazirmatn({
   variable: "--font-vazir",
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+
 export const metadata = {
   title: {
     default: "دانشران | محیطی برای انتشار مقالات علمی",
@@ -16,16 +18,28 @@ export const metadata = {
   },
   description:
     "دانشران، پلتفرمی جامع برای انتشار، اشتراک‌گذاری و دسترسی به مقالات علمی در ایران",
-  keywords: ["مقالات علمی", "انتشار مقاله", "پژوهش", "دانشران", "علمی"],
-  authors: [{ name: "پویان فرهادی" }],
-  creator: "دانشران",
-  publisher: "دانشران",
-  robots: "index, follow",
   openGraph: {
     title: "دانشران | محیطی برای انتشار مقالات علمی",
-    description: "به جامعه علمی دانشران بپیوندید و مقالات خود را منتشر کنید",
+    description:
+      "دانشران، پلتفرمی جامع برای انتشار، اشتراک‌گذاری و دسترسی به مقالات علمی در ایران",
     type: "website",
     locale: "fa_IR",
+    siteName: "دانشران",
+    images: [
+      {
+        url: `${siteUrl}/daneshran.webp`,
+        width: 1200,
+        height: 630,
+        alt: "دانشران",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "دانشران | محیطی برای انتشار مقالات علمی",
+    description:
+      "دانشران، پلتفرمی جامع برای انتشار، اشتراک‌گذاری و دسترسی به مقالات علمی در ایران",
+    images: [`${siteUrl}/daneshran.webp`],
   },
 };
 

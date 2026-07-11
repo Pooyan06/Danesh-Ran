@@ -117,7 +117,7 @@ export default function AttachmentsSection({
   };
 
   return (
-    <div className="border-brand-7 space-y-4 border-b border-dashed pb-5 sm:pb-7">
+    <section className="border-brand-7 space-y-4 border-b border-dashed pb-5 sm:pb-7">
       <SectionHeader
         step="۳"
         title=" پیوست‌ها"
@@ -133,6 +133,15 @@ export default function AttachmentsSection({
         onDrop={handleDrop}
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
+        role="button"
+        tabIndex={0}
+        aria-label="آپلود فایل‌های PDF"
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            handleClick();
+          }
+        }}
       >
         <div
           className={`text-brand-2 rounded-full p-3 transition-colors duration-200 sm:p-4 ${
@@ -159,18 +168,22 @@ export default function AttachmentsSection({
         multiple
         className="hidden"
         onChange={handleFileInputChange}
+        aria-label="انتخاب فایل‌های PDF"
       />
 
       {error && (
-        <div className="rounded-xl border border-red-300 bg-red-50 px-3 py-1.5 text-xs text-red-700 sm:px-4 sm:py-2 sm:text-sm">
+        <div
+          className="rounded-xl border border-red-300 bg-red-50 px-3 py-1.5 text-xs text-red-700 sm:px-4 sm:py-2 sm:text-sm"
+          role="alert"
+        >
           {error}
         </div>
       )}
 
       {files.length > 0 && (
-        <div className="space-y-2">
+        <ul className="space-y-2" aria-label="لیست فایل‌های آپلود شده">
           {files.map((file, index) => (
-            <div
+            <li
               key={`${file.name}-${file.size}-${index}`}
               className="border-brand-7 hover:border-brand-3 hover:bg-brand-5 bg-brand-1 flex flex-col gap-2 rounded-xl border px-3 py-2 transition-colors duration-200 sm:flex-row sm:items-center sm:justify-between sm:px-4 sm:py-3"
             >
@@ -192,14 +205,14 @@ export default function AttachmentsSection({
                   removeFile(index);
                 }}
                 className="shring-0 flex h-6 w-6 cursor-pointer items-center justify-center rounded-full text-xl font-light text-gray-400 transition-colors duration-200 hover:bg-red-50 hover:text-red-600 sm:h-8 sm:w-8 sm:text-2xl"
-                aria-label="حذف فایل"
+                aria-label={`حذف فایل ${file.name}`}
               >
                 <XIcon size={1.2} />
               </button>
-            </div>
+            </li>
           ))}
-        </div>
+        </ul>
       )}
-    </div>
+    </section>
   );
 }

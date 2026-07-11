@@ -37,17 +37,27 @@ const formats = [
 export default function ContentEditorSection() {
   return (
     <div>
-      <p className="text-xs font-medium sm:text-sm">
+      <label
+        htmlFor="content-editor"
+        className="text-xs font-medium sm:text-sm"
+      >
         متن مقاله <span className="text-red-600">*</span>
-      </p>
+      </label>
 
-      <div className="quill-wrapper my-2">
+      <div
+        className="quill-wrapper my-2"
+        id="content-editor"
+        role="textbox"
+        aria-label="ویرایشگر متن مقاله"
+        aria-multiline="true"
+      >
         <ReactQuill
           theme="snow"
           modules={modules}
           formats={formats}
           placeholder="متن کامل مقاله را اینجا بنویسید..."
           className="bg-brand-1 rounded-2xl text-sm sm:text-base"
+          aria-label="ویرایشگر متن مقاله"
         />
       </div>
       <p className="text-brand-4 mt-2 flex items-center gap-1 text-[0.7rem] sm:mt-3 sm:text-[0.8rem]">

@@ -7,14 +7,20 @@ export default function SearchBar() {
         <SearchIcon size={1.2} />
         <input
           name="search"
-          type="text"
+          type="search"
           className="placeholder:text-brand-4 text-brand-8 w-full text-sm outline-none sm:text-base"
           placeholder="جست و جوی مقاله، نویسنده یا موضوع..."
           dir="rtl"
+          aria-label="جستجوی مقالات، نویسندگان و موضوعات"
+          autoComplete="off"
         />
-        <div className="hover:text-brand-2 text-brand-4 hover:bg-brand-11 ml-2 flex h-7 w-7 cursor-pointer items-center justify-center rounded-full duration-300 sm:h-8 sm:w-8">
+        <button
+          type="submit"
+          aria-label="جستجو"
+          className="hover:text-brand-2 text-brand-4 hover:bg-brand-11 ml-2 flex h-7 w-7 cursor-pointer items-center justify-center rounded-full duration-300 sm:h-8 sm:w-8"
+        >
           <ArrowBackIcon size={1.1} />
-        </div>
+        </button>
       </div>
     </div>
   );

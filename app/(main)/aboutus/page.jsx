@@ -14,8 +14,45 @@ import {
 import Button from "@/app/_components/Button";
 import Link from "next/link";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+
 export const metadata = {
   title: "درباره ما",
+  description:
+    "دانشران یک پلتفرم علمی باز برای انتشار مقالات و ارتباط پژوهشگران ایرانی. با اهداف، چشم‌انداز و تیم ما آشنا شوید.",
+  keywords: [
+    "درباره دانشران",
+    "پلتفرم علمی",
+    "انتشار مقاله",
+    "پژوهشگران ایرانی",
+    "جامعه علمی",
+    "اهداف دانشران",
+  ],
+  authors: [{ name: "پویان فرهادی" }],
+  openGraph: {
+    title: "درباره ما | دانشران - پلتفرم انتشار مقالات علمی",
+    description:
+      "دانشران یک پلتفرم علمی باز برای انتشار مقالات و ارتباط پژوهشگران ایرانی. با اهداف، چشم‌انداز و تیم ما آشنا شوید.",
+    type: "website",
+    locale: "fa_IR",
+    siteName: "دانشران",
+    url: `${siteUrl}/aboutus`,
+    images: [
+      {
+        url: `${siteUrl}/daneshran.webp`,
+        width: 1200,
+        height: 630,
+        alt: "درباره دانشران",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "درباره ما | دانشران",
+    description:
+      "دانشران یک پلتفرم علمی باز برای انتشار مقالات و ارتباط پژوهشگران ایرانی.",
+    images: [`${siteUrl}/daneshran.webp`],
+  },
 };
 
 export default function page() {
@@ -38,9 +75,9 @@ function AboutUshHeader() {
       <div className="bg-brand-2 flex h-16 w-16 items-center justify-center rounded-full text-2xl text-white sm:h-18 sm:w-18 sm:text-3xl">
         <UsersIcon size={1.6} />
       </div>
-      <p className="text-brand-2 text-2xl font-bold sm:text-4xl">
+      <h1 className="text-brand-2 text-2xl font-bold sm:text-4xl">
         درباره <span className="text-brand-3">دانشران</span>
-      </p>
+      </h1>
       <p className="text-brand-4 max-w-full px-4 text-center text-sm sm:max-w-150 sm:px-0 sm:text-base">
         دانشران یک پلتفرم علمی باز است که با هدف ترویج دانش و ارتباط پژوهشگران
         ایرانی راه‌اندازی شده است. ما به دنبال ایجاد فضایی شفاف و مشارکتی برای
@@ -57,7 +94,7 @@ function AboutMissionVision() {
         <div className="bg-brand-9 text-brand-2 flex h-12 w-12 items-center justify-center rounded-full sm:h-13 sm:w-13">
           <TargetIcon size={1.6} />
         </div>
-        <p className="text-lg font-semibold sm:text-xl">چشم انداز</p>
+        <h2 className="text-lg font-semibold sm:text-xl">چشم انداز</h2>
         <p className="text-brand-4 text-sm sm:text-base">
           تبدیل شدن به مرجع اصلی انتشار و تبادل مقالات علمی در ایران و ایجاد
           بستری برای همکاری‌های بین‌رشته‌ای.
@@ -67,7 +104,7 @@ function AboutMissionVision() {
         <div className="bg-brand-9 text-brand-2 flex h-12 w-12 items-center justify-center rounded-full sm:h-13 sm:w-13">
           <FlaghIcon size={1.4} />
         </div>
-        <p className="text-lg font-semibold sm:text-xl">رسالت</p>
+        <h2 className="text-lg font-semibold sm:text-xl">رسالت</h2>
         <p className="text-brand-4 text-sm sm:text-base">
           دسترسی آزاد به دانش، توانمندسازی پژوهشگران جوان و تسهیل فرایند داوری و
           انتشار با حفظ کیفیت و شفافیت.
@@ -109,7 +146,7 @@ function AboutTeam() {
     <div>
       <div className="text-brand-2 flex items-center gap-2">
         <UsersIcon size={1.4} />
-        <p className="text-lg font-semibold sm:text-xl">تیم دانشران</p>
+        <h2 className="text-lg font-semibold sm:text-xl">تیم دانشران</h2>
       </div>
       <div className="mt-4 grid grid-cols-2 gap-3 sm:mt-5 sm:flex sm:gap-5">
         <div className="border-brand-7 hover:border-brand-3 flex h-auto w-full flex-col items-center justify-evenly rounded-xl border bg-white p-4 duration-300 hover:-translate-y-1 hover:shadow-md sm:h-50 sm:w-60 sm:p-5">
@@ -199,7 +236,7 @@ function AboutValues() {
     <div>
       <div className="text-brand-2 flex items-center gap-2">
         <HeartIcon size={1.4} />
-        <p className="text-lg font-semibold sm:text-xl">ارزش های ما</p>
+        <h2 className="text-lg font-semibold sm:text-xl">ارزش های ما</h2>
       </div>
       <div className="mt-4 grid grid-cols-1 gap-3 sm:mt-5 sm:grid-cols-2 sm:gap-5">
         {values.map((value) => (
@@ -209,9 +246,9 @@ function AboutValues() {
           >
             <div className="w-8 sm:w-10">{value.icon}</div>
             <div>
-              <p className="text-sm font-semibold sm:text-base">
+              <h3 className="text-sm font-semibold sm:text-base">
                 {value.title}
-              </p>
+              </h3>
               <p className="text-brand-4 mt-0.5 text-[0.8rem] sm:mt-1 sm:text-[0.9rem]">
                 {value.description}
               </p>
@@ -226,9 +263,9 @@ function AboutValues() {
 function AboutCTA() {
   return (
     <div className="to-brand-2 flex w-full flex-col items-center gap-3 rounded-xl bg-linear-to-br from-[#1a4d4c] p-6 sm:gap-4 sm:p-10">
-      <p className="text-xl font-semibold text-white sm:text-2xl">
+      <h2 className="text-xl font-semibold text-white sm:text-2xl">
         به جامعه علمی دانشران بپیوندید
-      </p>
+      </h2>
       <p className="mb-2 text-center text-sm text-white opacity-80 sm:mb-3 sm:text-base">
         با عضویت در دانشران، مقالات خود را منتشر کنید و از بازخورد متخصصان
         بهره‌مند شوید.

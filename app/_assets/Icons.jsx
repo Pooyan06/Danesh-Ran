@@ -1,6 +1,8 @@
 export function BookOpenIcon({ size = 1 }) {
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       width={`${size}em`}
       height={`${size}em`}
@@ -21,6 +23,8 @@ export function BookOpenIcon({ size = 1 }) {
 export function TelegramIcon({ size = 1 }) {
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       width={`${size}em`}
       height={`${size}em`}
@@ -41,6 +45,8 @@ export function TelegramIcon({ size = 1 }) {
 export function InstagramIcon({ size = 1 }) {
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       width={`${size}em`}
       height={`${size}em`}
@@ -58,6 +64,8 @@ export function InstagramIcon({ size = 1 }) {
 export function LinkedinIcon({ size = 1 }) {
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       width={`${size}em`}
       height={`${size}em`}
@@ -75,6 +83,8 @@ export function LinkedinIcon({ size = 1 }) {
 export function GoogleIcon({ size = 1 }) {
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       width={`${size}em`}
       height={`${size}em`}
@@ -95,6 +105,8 @@ export function GoogleIcon({ size = 1 }) {
 export function MoonIcon({ size = 1 }) {
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       width={`${size}em`}
       height={`${size}em`}
@@ -112,6 +124,8 @@ export function MoonIcon({ size = 1 }) {
 export function PlusIcon({ size = 1 }) {
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       width={`${size}em`}
       height={`${size}em`}
@@ -135,6 +149,8 @@ export function PlusIcon({ size = 1 }) {
 export function ArrowIcon({ size = 1 }) {
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       width={`${size}em`}
       height={`${size}em`}
@@ -152,6 +168,8 @@ export function ArrowIcon({ size = 1 }) {
 export function HeartIcon({ size = 1 }) {
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       width={`${size}em`}
       height={`${size}em`}
@@ -181,6 +199,8 @@ export function HeartIcon({ size = 1 }) {
 export function EyeIcon({ size = 1 }) {
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       width={`${size}em`}
       height={`${size}em`}
@@ -198,6 +218,8 @@ export function EyeIcon({ size = 1 }) {
 export function EyeOffIcon({ size = 1 }) {
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       width={`${size}em`}
       height={`${size}em`}
@@ -215,6 +237,8 @@ export function EyeOffIcon({ size = 1 }) {
 export function DateRangeIcon({ size = 1 }) {
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       width={`${size}em`}
       height={`${size}em`}
@@ -232,6 +256,8 @@ export function DateRangeIcon({ size = 1 }) {
 export function UserIcon({ size = 1 }) {
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       width={`${size}em`}
       height={`${size}em`}
@@ -249,6 +275,8 @@ export function UserIcon({ size = 1 }) {
 export function UsersIcon({ size = 1 }) {
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       width={`${size}em`}
       height={`${size}em`}
@@ -270,6 +298,8 @@ export function UsersIcon({ size = 1 }) {
 export function FireIcon({ size = 1 }) {
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       width={`${size}em`}
       height={`${size}em`}
@@ -287,6 +317,8 @@ export function FireIcon({ size = 1 }) {
 export function FileTextIcon({ size = 1 }) {
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       width={`${size}em`}
       height={`${size}em`}
@@ -310,6 +342,8 @@ export function FileTextIcon({ size = 1 }) {
 export function PenToolIcon({ size = 1 }) {
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       width={`${size}em`}
       height={`${size}em`}
@@ -334,6 +368,8 @@ export function PenToolIcon({ size = 1 }) {
 export function SearchIcon({ size = 1 }) {
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       width={`${size}em`}
       height={`${size}em`}
@@ -351,6 +387,8 @@ export function SearchIcon({ size = 1 }) {
 export function ArrowBackIcon({ size = 1 }) {
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       width={`${size}em`}
       height={`${size}em`}
@@ -372,6 +410,8 @@ export function ArrowBackIcon({ size = 1 }) {
 export function InfoIcon({ size = 1 }) {
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       width={`${size}em`}
       height={`${size}em`}
@@ -389,6 +429,8 @@ export function InfoIcon({ size = 1 }) {
 export function ShareIcon({ size = 1 }) {
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       width={`${size}em`}
       height={`${size}em`}
@@ -408,6 +450,8 @@ export function ShareIcon({ size = 1 }) {
 export function ShaireIcon2({ size = 1 }) {
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       width={`${size}em`}
       height={`${size}em`}
@@ -429,6 +473,8 @@ export function ShaireIcon2({ size = 1 }) {
 export function CopyIcon({ size = 1 }) {
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       width={`${size}em`}
       height={`${size}em`}
@@ -451,6 +497,8 @@ export function CopyIcon({ size = 1 }) {
 export function BookmarkIcon({ size = 1 }) {
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       width={`${size}em`}
       height={`${size}em`}
@@ -472,6 +520,8 @@ export function BookmarkIcon({ size = 1 }) {
 export function CommentIcon({ size = 1 }) {
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       width={`${size}em`}
       height={`${size}em`}
@@ -493,6 +543,8 @@ export function CommentIcon({ size = 1 }) {
 export function LinkIcon({ size = 1 }) {
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       width={`${size}em`}
       height={`${size}em`}
@@ -516,6 +568,8 @@ export function LinkIcon({ size = 1 }) {
 export function DownloadIcon({ size = 1 }) {
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       width={`${size}em`}
       height={`${size}em`}
@@ -533,6 +587,8 @@ export function DownloadIcon({ size = 1 }) {
 export function SendIcon({ size = 1 }) {
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       width={`${size}em`}
       height={`${size}em`}
@@ -554,6 +610,8 @@ export function SendIcon({ size = 1 }) {
 export function CheckCircleIcon({ size = 1 }) {
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       width={`${size}em`}
       height={`${size}em`}
@@ -575,6 +633,8 @@ export function CheckCircleIcon({ size = 1 }) {
 export function EmailIcon({ size = 1 }) {
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       width={`${size}em`}
       height={`${size}em`}
@@ -593,6 +653,8 @@ export function EmailIcon({ size = 1 }) {
 export function LockIcon({ size = 1 }) {
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       width={`${size}em`}
       height={`${size}em`}
@@ -614,6 +676,8 @@ export function LockIcon({ size = 1 }) {
 export function EnterIcon({ size = 1 }) {
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       width={`${size}em`}
       height={`${size}em`}
@@ -635,6 +699,8 @@ export function EnterIcon({ size = 1 }) {
 export function ShieldCheckIcon({ size = 1 }) {
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       width={`${size}em`}
       height={`${size}em`}
@@ -658,6 +724,8 @@ export function ShieldCheckIcon({ size = 1 }) {
 export function BrainCircuitIcon({ size = 1 }) {
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       width={`${size}em`}
       height={`${size}em`}
@@ -675,6 +743,8 @@ export function BrainCircuitIcon({ size = 1 }) {
 export function DnaIcon({ size = 1 }) {
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       width={`${size}em`}
       height={`${size}em`}
@@ -694,6 +764,8 @@ export function DnaIcon({ size = 1 }) {
 export function AtomIcon({ size = 1 }) {
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       width={`${size}em`}
       height={`${size}em`}
@@ -711,6 +783,8 @@ export function AtomIcon({ size = 1 }) {
 export function BarchartIcon({ size = 1 }) {
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       width={`${size}em`}
       height={`${size}em`}
@@ -732,6 +806,8 @@ export function BarchartIcon({ size = 1 }) {
 export function CogIcon({ size = 1 }) {
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       width={`${size}em`}
       height={`${size}em`}
@@ -755,6 +831,8 @@ export function CogIcon({ size = 1 }) {
 export function StethOscopeIcon({ size = 1 }) {
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       width={`${size}em`}
       height={`${size}em`}
@@ -772,6 +850,8 @@ export function StethOscopeIcon({ size = 1 }) {
 export function MoreHorizontalIcON({ size = 1 }) {
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       width={`${size}em`}
       height={`${size}em`}
@@ -793,6 +873,8 @@ export function MoreHorizontalIcON({ size = 1 }) {
 export function UploadCloudIcon({ size = 1 }) {
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       width={`${size}em`}
       height={`${size}em`}
@@ -816,6 +898,8 @@ export function UploadCloudIcon({ size = 1 }) {
 export function SaveIcon({ size = 1 }) {
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       width={`${size}em`}
       height={`${size}em`}
@@ -839,6 +923,8 @@ export function SaveIcon({ size = 1 }) {
 export function LightBulbIcon({ size = 1 }) {
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       width={`${size}em`}
       height={`${size}em`}
@@ -856,6 +942,8 @@ export function LightBulbIcon({ size = 1 }) {
 export function CheckIcon({ size = 1 }) {
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       width={`${size}em`}
       height={`${size}em`}
@@ -875,6 +963,8 @@ export function CheckIcon({ size = 1 }) {
 export function LifeBuoyIcon({ size = 1 }) {
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       width={`${size}em`}
       height={`${size}em`}
@@ -899,6 +989,8 @@ export function LifeBuoyIcon({ size = 1 }) {
 export function TargetIcon({ size = 1 }) {
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       width={`${size}em`}
       height={`${size}em`}
@@ -923,6 +1015,8 @@ export function TargetIcon({ size = 1 }) {
 export function FlaghIcon({ size = 1 }) {
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       width={`${size}em`}
       height={`${size}em`}
@@ -944,6 +1038,8 @@ export function FlaghIcon({ size = 1 }) {
 export function GlobIcon({ size = 1 }) {
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       width={`${size}em`}
       height={`${size}em`}
@@ -967,6 +1063,8 @@ export function GlobIcon({ size = 1 }) {
 export function HandSHakeIcon({ size = 1 }) {
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       width={`${size}em`}
       height={`${size}em`}
@@ -991,6 +1089,8 @@ export function HandSHakeIcon({ size = 1 }) {
 export function AwardIcon({ size }) {
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       width={`${size}em`}
       height={`${size}em`}
@@ -1008,6 +1108,8 @@ export function AwardIcon({ size }) {
 export function PhoneCallIcon({ size = 1 }) {
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       width={`${size}em`}
       height={`${size}em`}
@@ -1029,6 +1131,8 @@ export function PhoneCallIcon({ size = 1 }) {
 export function PhoneIcon({ size = 1 }) {
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       width={`${size}em`}
       height={`${size}em`}
@@ -1046,6 +1150,8 @@ export function PhoneIcon({ size = 1 }) {
 export function MessageIcon({ size = 1 }) {
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       width={`${size}em`}
       height={`${size}em`}
@@ -1065,6 +1171,8 @@ export function MessageIcon({ size = 1 }) {
 export function TagIcon({ size = 1 }) {
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       width={`${size}em`}
       height={`${size}em`}
@@ -1088,6 +1196,8 @@ export function TagIcon({ size = 1 }) {
 export function XIcon({ size = 1 }) {
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       width={`${size}em`}
       height={`${size}em`}
@@ -1109,6 +1219,8 @@ export function XIcon({ size = 1 }) {
 export function MapPinIcon({ size = 1 }) {
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       width={`${size}em`}
       height={`${size}em`}
@@ -1132,6 +1244,8 @@ export function MapPinIcon({ size = 1 }) {
 export function ClockIcon({ size = 1 }) {
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       width={`${size}em`}
       height={`${size}em`}
@@ -1155,6 +1269,8 @@ export function ClockIcon({ size = 1 }) {
 export function MapIcon({ size = 1 }) {
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       width={`${size}em`}
       height={`${size}em`}

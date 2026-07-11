@@ -10,23 +10,23 @@ export default function PopularAuthors() {
   ];
 
   return (
-    <div className="border-brand-7 rounded-2xl border bg-white p-4 sm:p-5">
+    <aside className="border-brand-7 rounded-2xl border bg-white p-4 sm:p-5">
       <div className="text-brand-2 mb-4 flex items-center space-x-1 font-semibold">
         <UsersIcon size={1.2} />
-        <p className="text-sm sm:text-base">نویسندگان پر استناد این ماه</p>
+        <h3 className="text-sm sm:text-base">نویسندگان پر استناد این ماه</h3>
       </div>
-      <div>
+      <ul>
         {authors.map((author, i) => (
-          <div className="space-y-2" key={author.name}>
+          <li className="space-y-2" key={author.name}>
             <AuthorsCards
               name={author.name}
               view={author.view}
               key={author.name}
             />
             {i !== authors.length - 1 && <hr className="text-brand-7 mb-2" />}
-          </div>
+          </li>
         ))}
-      </div>
-    </div>
+      </ul>
+    </aside>
   );
 }

@@ -3,6 +3,51 @@ import Header from "./_components/Header";
 import ContentSection from "./_pages/home/ContentSection";
 import HeroSection from "./_pages/home/HeroSection";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+
+export const metadata = {
+  title: "دانشران | محیطی برای انتشار مقالات علمی",
+  description:
+    "دانشران، پلتفرمی جامع برای انتشار، اشتراک‌گذاری و دسترسی به مقالات علمی در ایران. به جامعه پژوهشگران بپیوندید.",
+  keywords: [
+    "مقالات علمی",
+    "انتشار مقاله",
+    "پژوهش",
+    "دانشران",
+    "علمی",
+    "پژوهشگران ایرانی",
+    "مقالات پژوهشی",
+  ],
+  authors: [{ name: "پویان فرهادی" }],
+  openGraph: {
+    title: "دانشران | محیطی برای انتشار مقالات علمی",
+    description:
+      "دانشران، پلتفرمی جامع برای انتشار، اشتراک‌گذاری و دسترسی به مقالات علمی در ایران. به جامعه پژوهشگران بپیوندید.",
+    type: "website",
+    locale: "fa_IR",
+    siteName: "دانشران",
+    url: `${siteUrl}/`,
+    images: [
+      {
+        url: `${siteUrl}/daneshran.webp`,
+        width: 1200,
+        height: 630,
+        alt: "دانشران - انتشار مقالات علمی",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "دانشران | محیطی برای انتشار مقالات علمی",
+    description:
+      "دانشران، پلتفرمی جامع برای انتشار، اشتراک‌گذاری و دسترسی به مقالات علمی در ایران.",
+    images: [`${siteUrl}/daneshran.webp`],
+  },
+  alternates: {
+    canonical: `${siteUrl}/`,
+  },
+};
+
 export default function page() {
   return (
     <>

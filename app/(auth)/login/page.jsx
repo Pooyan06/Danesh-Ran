@@ -11,8 +11,39 @@ import {
 import Button from "@/app/_components/Button";
 import Link from "next/link";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+
 export const metadata = {
   title: "ورود به دانشران",
+  description:
+    "به حساب کاربری خود در دانشران وارد شوید و به مقالات علمی دسترسی پیدا کنید.",
+  keywords: ["ورود", "لاگین", "حساب کاربری", "دانشران", "ورود به دانشران"],
+  authors: [{ name: "پویان فرهادی" }],
+  robots: "noindex, follow",
+  openGraph: {
+    title: "ورود به حساب کاربری | دانشران",
+    description:
+      "به حساب کاربری خود در دانشران وارد شوید و به مقالات علمی دسترسی پیدا کنید.",
+    type: "website",
+    locale: "fa_IR",
+    siteName: "دانشران",
+    url: `${siteUrl}/login`,
+    images: [
+      {
+        url: `${siteUrl}/daneshran.webp`,
+        width: 1200,
+        height: 630,
+        alt: "ورود به دانشران",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ورود به حساب کاربری | دانشران",
+    description:
+      "به حساب کاربری خود در دانشران وارد شوید و به مقالات علمی دسترسی پیدا کنید.",
+    images: [`${siteUrl}/daneshran.webp`],
+  },
 };
 
 export default function page() {
@@ -44,9 +75,9 @@ export default function page() {
         </div>
       </div>
       <div className="flex flex-1/2 flex-col justify-center gap-2 bg-white p-6 sm:p-8 md:p-10">
-        <p className="text-xl font-bold text-gray-800 sm:text-2xl">
+        <h2 className="text-xl font-bold text-gray-800 sm:text-2xl">
           ورود به حساب
-        </p>
+        </h2>
         <p className="text-xs text-gray-500 sm:text-sm">
           خوش آمدید! لطفاً اطلاعات خود را وارد کنید.
         </p>

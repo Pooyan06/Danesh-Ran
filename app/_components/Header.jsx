@@ -1,4 +1,4 @@
-"use client"; // اضافه کنید چون از useState استفاده میکنه
+"use client";
 
 import { useState } from "react";
 import Link from "next/link";
@@ -7,10 +7,10 @@ import Button from "./Button";
 import NavLink from "./NavLink";
 import Logo from "@/app/icon.png";
 import Image from "next/image";
-import MobileMenu from "./MobileMenu"; // ایمپورت کنید
+import MobileMenu from "./MobileMenu";
 
 export default function Header() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // state جدید
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
     <header className="bg-brand-1 border-brand-7 fixed z-1000 flex w-full items-center justify-between border-b px-4 py-2 sm:px-6 md:px-10 lg:px-15">
@@ -18,20 +18,20 @@ export default function Header() {
         <Link
           className="text-brand-2 flex items-center gap-1 sm:gap-2"
           href="/"
+          aria-label="صفحه اصلی دانشران"
         >
           <Image
             src={Logo}
             width={40}
             height={40}
             className="sm:h-12.5 sm:w-12.5 lg:h-15 lg:w-15"
-            alt="دانشران"
+            alt=""
           />
           <h1 className="text-xl font-bold sm:text-2xl">دانشران</h1>
         </Link>
       </div>
 
-      {/* منوی ناوبری - فقط در دسکتاپ */}
-      <nav className="hidden md:block">
+      <nav className="hidden md:block" aria-label="منوی اصلی">
         <ul className="text-brand-8 flex gap-3 font-extrabold lg:gap-5">
           <NavLink href="/">خانه</NavLink>
           <NavLink href="/articles">مقالات جدید</NavLink>
@@ -40,12 +40,13 @@ export default function Header() {
         </ul>
       </nav>
 
-      {/* دکمه‌های سمت راست */}
       <div className="flex flex-1/3 items-center justify-end gap-1 sm:gap-2 lg:gap-3">
-        {/* دکمه مون */}
-        <div className="text-brand-8 hover:text-brand-2 hover:bg-brand-11 ml-1 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full duration-300 sm:h-10 sm:w-10 lg:ml-5 lg:h-12 lg:w-12">
+        <button
+          className="text-brand-8 hover:text-brand-2 hover:bg-brand-11 ml-1 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full duration-300 sm:h-10 sm:w-10 lg:ml-5 lg:h-12 lg:w-12"
+          aria-label="تغییر تم"
+        >
           <MoonIcon size={2} />
-        </div>
+        </button>
 
         <div className="flex items-stretch gap-1 sm:gap-2 lg:gap-3">
           <Link href="/singup" className="flex flex-1">
