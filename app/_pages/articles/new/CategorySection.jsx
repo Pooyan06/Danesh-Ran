@@ -29,11 +29,11 @@ export default function CategorySection() {
 
   return (
     <div>
-      <p className="mb-3 text-sm font-medium">
+      <p className="mb-2 text-xs font-medium sm:mb-3 sm:text-sm">
         عنوان دسته بندی <span className="text-red-600">*</span>
       </p>
 
-      <div className="grid grid-cols-4 grid-rows-2 gap-3">
+      <div className="grid grid-cols-2 gap-2 sm:grid-cols-4 sm:gap-3">
         {categories.map((category) => (
           <CategoryCard
             key={category.id}
@@ -55,14 +55,16 @@ function CategoryCard({ title, icon, active, onClick }) {
     <button
       type="button"
       onClick={onClick}
-      className={`flex cursor-pointer flex-col items-center justify-center gap-1 rounded-2xl border py-5 duration-200 ${
+      className={`flex cursor-pointer flex-col items-center justify-center gap-1 rounded-2xl border py-3 duration-200 sm:py-5 ${
         active
           ? "bg-brand-11 border-brand-2 "
           : "bg-brand-1 border-brand-7 hover:bg-brand-5 hover:border-brand-6"
       }`}
     >
-      {icon}
-      <p className="text-brand-4 text-[0.8rem] font-semibold">{title}</p>
+      <div className="scale-90 sm:scale-100">{icon}</div>
+      <p className="text-brand-4 text-[0.65rem] font-semibold sm:text-[0.8rem]">
+        {title}
+      </p>
     </button>
   );
 }

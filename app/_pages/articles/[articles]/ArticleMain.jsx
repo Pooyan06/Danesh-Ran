@@ -12,7 +12,7 @@ import Input from "@/app/_components/Input";
 
 export default function ArticleMain({ article }) {
   return (
-    <div className="border-brand-7 flex-3/4 space-y-5 rounded-2xl border bg-white p-10">
+    <div className="border-brand-7 flex-3/4 space-y-4 rounded-2xl border bg-white p-4 sm:space-y-5 sm:p-6 lg:p-10">
       <ArticleHeadline article={article} />
       <hr className="text-brand-7 w-full" />
       <ArticleContent article={article} />
@@ -24,14 +24,14 @@ export default function ArticleMain({ article }) {
 
 function ArticleHeadline({ article }) {
   return (
-    <div className="space-y-3">
-      <h4 className="bg-brand-5 text-brand-4 inline-block rounded-full p-2 text-[0.9rem] font-medium">
+    <div className="space-y-2 sm:space-y-3">
+      <h4 className="bg-brand-5 text-brand-4 inline-block rounded-full p-1.5 text-[0.75rem] font-medium sm:p-2 sm:text-[0.9rem]">
         {article.tag}
       </h4>
-      <h2 className="text-2xl font-bold">{article.title}</h2>
-      <div className="text-brand-4 flex gap-4 text-[0.9rem]">
+      <h2 className="text-xl font-bold sm:text-2xl">{article.title}</h2>
+      <div className="text-brand-4 flex flex-wrap gap-2 text-[0.75rem] sm:gap-4 sm:text-[0.9rem]">
         <div className="flex items-center gap-1 pt-1">
-          <UserIcon size={1.3} />
+          <UserIcon size={1.1} />
           <p>{article.author}</p>
         </div>
         <div className="flex gap-1 pt-1">
@@ -39,14 +39,13 @@ function ArticleHeadline({ article }) {
           <p>{article.date}</p>
         </div>
         <div className="flex gap-1 pt-1">
-          <EyeIcon size={1.1} />
+          <EyeIcon size={1} />
           <p>{article.views}</p>
         </div>
         <div className="hover:bg-brand-11 flex cursor-pointer gap-1 rounded-full px-2 pt-1 duration-150">
-          <HeartIcon size={1.1} />
+          <HeartIcon size={1} />
           <p>{article.likes}</p>
         </div>
-        <div></div>
       </div>
     </div>
   );
@@ -54,7 +53,7 @@ function ArticleHeadline({ article }) {
 
 function ArticleContent({ article }) {
   return (
-    <div className="space-y-7">
+    <div className="space-y-5 sm:space-y-7">
       {article.abstract && <ArticleAbstract abstract={article.abstract} />}
       {article.sections.map((section, i) => (
         <ArticleText
@@ -71,7 +70,7 @@ function ArticleContent({ article }) {
 
 function ArticleAbstract({ abstract }) {
   return (
-    <div className="border-brand-3 bg-brand-1 rounded-2xl border-r-4 p-4">
+    <div className="border-brand-3 bg-brand-1 rounded-2xl border-r-4 p-3 text-sm sm:p-4 sm:text-base">
       چكيده: {abstract}
     </div>
   );
@@ -79,13 +78,13 @@ function ArticleAbstract({ abstract }) {
 
 function ArticleText({ title = "", content, list = [] }) {
   return (
-    <div className="mb-6 space-y-2">
+    <div className="mb-4 space-y-2 sm:mb-6">
       {title && (
-        <h3 className="text-brand-2 text-primary text-xl font-semibold">
+        <h3 className="text-brand-2 text-primary text-lg font-semibold sm:text-xl">
           {title}
         </h3>
       )}
-      <div className="[&_li]:mb-1 [&_p]:mb-4 [&_ul]:my-2 [&_ul]:list-disc [&_ul]:pr-6">
+      <div className="text-sm sm:text-base [&_li]:mb-1 [&_p]:mb-3 [&_ul]:my-2 [&_ul]:list-disc [&_ul]:pr-6">
         <p>{content}</p>
         {list.length > 0 && (
           <ul>
@@ -101,8 +100,8 @@ function ArticleText({ title = "", content, list = [] }) {
 
 function PdfDownload() {
   return (
-    <div className="bg-brand-1 border-brand-7 hover:border-brand-3 flex items-center justify-between rounded-xl border px-4 py-4 duration-300">
-      <div className="flex gap-1">
+    <div className="bg-brand-1 border-brand-7 hover:border-brand-3 flex flex-col gap-3 rounded-xl border px-3 py-3 duration-300 sm:flex-row sm:items-center sm:justify-between sm:px-4 sm:py-4">
+      <div className="flex flex-wrap gap-1 text-sm sm:text-base">
         <p>
           نسخه <span className="text-brand-4">۱.۲</span>
         </p>
@@ -113,8 +112,8 @@ function PdfDownload() {
       </div>
       <div>
         <Button type={1} size="small">
-          <DownloadIcon size={1.6} />
-          دانلود
+          <DownloadIcon size={1.4} />
+          <span className="text-xs sm:text-sm">دانلود</span>
         </Button>
       </div>
     </div>
@@ -124,25 +123,25 @@ function PdfDownload() {
 function CommentsSection({ article }) {
   return (
     <div>
-      <p className="text-brand-2 mb-6 flex items-center gap-1 text-xl font-bold">
-        <CommentIcon size={1.4} />
+      <p className="text-brand-2 mb-4 flex items-center gap-1 text-lg font-bold sm:mb-6 sm:text-xl">
+        <CommentIcon size={1.2} />
         نظرات
       </p>
       <div>
         <Input type="area" placeholder="نظر خود را بنويسيد..." />
-        <div className="mt-1 flex items-center gap-3">
+        <div className="mt-2 flex flex-col gap-2 sm:mt-1 sm:flex-row sm:items-center sm:gap-3">
           <Button size="small">
-            <SendIcon size={1.3} />
-            ارسال نظر
+            <SendIcon size={1.2} />
+            <span className="text-xs sm:text-sm">ارسال نظر</span>
           </Button>
-          <p className="text-brand-4 text-sm">
+          <p className="text-brand-4 text-xs sm:text-sm">
             با ثبت نظر، با قوانین جامعه موافقت می‌کنید.
           </p>
         </div>
       </div>
-      <div className="mt-9">
+      <div className="mt-6 sm:mt-9">
         {article.comments.map((comment, i) => (
-          <div className="my-5 space-y-5" key={comment.id}>
+          <div className="my-4 space-y-4 sm:my-5 sm:space-y-5" key={comment.id}>
             <CommentItem author={comment.author} date={comment.date}>
               {comment.text}
             </CommentItem>
@@ -158,18 +157,18 @@ function CommentsSection({ article }) {
 
 function CommentItem({ author, date, children }) {
   return (
-    <div className="flex items-center gap-4">
-      <div className="from-brand-2 to-brand-3 text-brand-1 flex h-10 w-10 items-center justify-center rounded-full bg-linear-to-br font-bold">
+    <div className="flex items-start gap-3 sm:gap-4">
+      <div className="from-brand-2 to-brand-3 text-brand-1 flex h-8 w-8 items-center justify-center rounded-full bg-linear-to-br text-sm font-bold sm:h-10 sm:w-10 sm:text-base">
         {author[0]}
       </div>
-      <div className="space-y-2">
-        <div className="flex gap-3">
-          <p className="text-sm font-semibold">{author}</p>
-          <p className="text-brand-4 text-[0.800rem] font-medium">
+      <div className="space-y-1 sm:space-y-2">
+        <div className="flex flex-wrap gap-2 sm:gap-3">
+          <p className="text-xs font-semibold sm:text-sm">{author}</p>
+          <p className="text-brand-4 text-[0.7rem] font-medium sm:text-[0.800rem]">
             {date} روز پيش
           </p>
         </div>
-        <div className="text-sm">
+        <div className="text-xs sm:text-sm">
           <p>{children}</p>
         </div>
       </div>

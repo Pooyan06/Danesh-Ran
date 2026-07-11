@@ -4,7 +4,7 @@ export default function layout({ children }) {
   return (
     <>
       <AuthHeader />
-      <main className="flex flex-1 items-center justify-center">
+      <main className="flex flex-1 items-center justify-center px-4 sm:px-0">
         {children}
       </main>
     </>

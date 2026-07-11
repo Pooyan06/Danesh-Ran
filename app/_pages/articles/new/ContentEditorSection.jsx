@@ -37,7 +37,7 @@ const formats = [
 export default function ContentEditorSection() {
   return (
     <div>
-      <p className="text-sm font-medium">
+      <p className="text-xs font-medium sm:text-sm">
         متن مقاله <span className="text-red-600">*</span>
       </p>
 
@@ -47,11 +47,11 @@ export default function ContentEditorSection() {
           modules={modules}
           formats={formats}
           placeholder="متن کامل مقاله را اینجا بنویسید..."
-          className="bg-brand-1 rounded-2xl"
+          className="bg-brand-1 rounded-2xl text-sm sm:text-base"
         />
       </div>
-      <p className="text-brand-4 flex items-center gap-1 text-[0.8rem]">
-        <InfoIcon size={1.85} />
+      <p className="text-brand-4 mt-2 flex items-center gap-1 text-[0.7rem] sm:mt-3 sm:text-[0.8rem]">
+        <InfoIcon size={1.5} />
         از ابزارهای بالا برای قالب‌بندی متن استفاده کنید.
       </p>
     </div>

@@ -451,8 +451,6 @@ export async function generateMetadata({ params }) {
   const { articles: articleIdParam } = await params;
   const articleId = Number(articleIdParam);
 
-  console.log(articleId);
-
   const article = articles.find((a) => a.id === articleId);
 
   if (!article) {
@@ -497,11 +495,13 @@ export default async function page({ params }) {
 
   if (!currentArticle) {
     return (
-      <section className="mt-18 mb-10">
+      <section className="mt-12 mb-6 px-4 sm:mt-18 sm:mb-10 sm:px-0">
         <div className="flex min-h-[50vh] items-center justify-center">
           <div className="text-center">
-            <h2 className="text-3xl font-bold text-red-500">مقاله یافت نشد</h2>
-            <p className="text-brand-4 mt-2">
+            <h2 className="text-2xl font-bold text-red-500 sm:text-3xl">
+              مقاله یافت نشد
+            </h2>
+            <p className="text-brand-4 mt-2 text-sm sm:text-base">
               مقاله‌ای با این شناسه وجود ندارد.
             </p>
           </div>
@@ -511,23 +511,23 @@ export default async function page({ params }) {
   }
 
   return (
-    <section className="mt-18 mb-10">
-      <section className="mt-18 mb-10">
-        <div className="flex w-full flex-col items-center justify-center gap-5 text-center">
+    <section className="mt-12 mb-6 px-4 sm:mt-18 sm:mb-10 sm:px-0">
+      <section>
+        <div className="flex w-full flex-col items-center justify-center gap-3 text-center sm:gap-5">
           <div>
-            <h4 className="text-brand-2 flex items-center gap-3 text-[2rem] font-bold">
-              <FileTextIcon />
+            <h4 className="text-brand-2 flex items-center gap-2 text-[1.6rem] font-bold sm:gap-3 sm:text-[2rem]">
+              <FileTextIcon size={1.6} />
               مشاهده مقاله
             </h4>
           </div>
-          <p className="text-brand-4 font-normal">
+          <p className="text-brand-4 text-sm font-normal sm:text-base">
             متن کامل مقاله را مطالعه کنید و با جامعه علمی تعامل داشته باشید.
           </p>
           <hr className="text-brand-7 w-screen" />
         </div>
-        <div className="mt-10 flex min-h-screen gap-8">
+        <div className="mt-6 flex min-h-screen flex-col gap-6 sm:mt-10 sm:gap-8 lg:flex-row">
           <ArticleMain article={currentArticle} />
-          <div className="sticky top-20 h-fit flex-1/4 space-y-5">
+          <div className="space-y-5 lg:sticky lg:top-20 lg:h-fit lg:flex-1/4">
             <ArticleInfo />
             <ShareActions />
             <ArticleActions />
@@ -541,34 +541,34 @@ export default async function page({ params }) {
 
 function ArticleInfo() {
   return (
-    <div className="border-brand-7 rounded-2xl border bg-white p-5">
-      <div className="text-brand-2 mb-4 flex items-center space-x-1 font-semibold">
-        <InfoIcon size={1.5} />
-        <p>اطلاعات مقاله</p>
+    <div className="border-brand-7 rounded-2xl border bg-white p-4 sm:p-5">
+      <div className="text-brand-2 mb-3 flex items-center space-x-1 font-semibold sm:mb-4">
+        <InfoIcon size={1.3} />
+        <p className="text-sm sm:text-base">اطلاعات مقاله</p>
       </div>
       <div className="space-y-2">
-        <div className="flex items-center justify-between space-y-2 text-sm font-semibold">
-          <p className="text-brand-4 text-sm">شناسه</p>
+        <div className="flex items-center justify-between space-y-2 text-xs font-semibold sm:text-sm">
+          <p className="text-brand-4 text-xs sm:text-sm">شناسه</p>
           <p>DAN-۲۰۲۴-۱۲۳</p>
         </div>
         <hr className="text-brand-7 mb-2" />
-        <div className="flex items-center justify-between space-y-2 text-sm font-semibold">
-          <p className="text-brand-4 text-sm">نوع</p>
+        <div className="flex items-center justify-between space-y-2 text-xs font-semibold sm:text-sm">
+          <p className="text-brand-4 text-xs sm:text-sm">نوع</p>
           <p>مروری</p>
         </div>
         <hr className="text-brand-7 mb-2" />
-        <div className="flex items-center justify-between space-y-2 text-sm font-semibold">
-          <p className="text-brand-4 text-sm">زبان</p>
+        <div className="flex items-center justify-between space-y-2 text-xs font-semibold sm:text-sm">
+          <p className="text-brand-4 text-xs sm:text-sm">زبان</p>
           <p>فارسی</p>
         </div>
         <hr className="text-brand-7 mb-2" />
-        <div className="flex items-center justify-between space-y-2 text-sm font-semibold">
-          <p className="text-brand-4 text-sm">تعداد صفحات</p>
+        <div className="flex items-center justify-between space-y-2 text-xs font-semibold sm:text-sm">
+          <p className="text-brand-4 text-xs sm:text-sm">تعداد صفحات</p>
           <p>18</p>
         </div>
         <hr className="text-brand-7 mb-2" />
-        <div className="flex items-center justify-between space-y-2 text-sm font-semibold">
-          <p className="text-brand-4 text-sm">وضعیت</p>
+        <div className="flex items-center justify-between space-y-2 text-xs font-semibold sm:text-sm">
+          <p className="text-brand-4 text-xs sm:text-sm">وضعیت</p>
           <p className="text-brand-2">تایید شده</p>
         </div>
       </div>
@@ -578,22 +578,22 @@ function ArticleInfo() {
 
 function ShareActions() {
   return (
-    <div className="border-brand-7 rounded-2xl border bg-white p-5">
-      <div className="text-brand-2 mb-4 flex items-center space-x-1 font-semibold">
-        <ShareIcon size={1.6} />
-        <p>اشتراک‌گذاری</p>
+    <div className="border-brand-7 rounded-2xl border bg-white p-4 sm:p-5">
+      <div className="text-brand-2 mb-3 flex items-center space-x-1 font-semibold sm:mb-4">
+        <ShareIcon size={1.4} />
+        <p className="text-sm sm:text-base">اشتراک‌گذاری</p>
       </div>
-      <div className="space-y-4">
+      <div className="space-y-3 sm:space-y-4">
         <div>
           <Button size="full" type={2}>
-            <CopyIcon size={1.5} />
-            کپی لینک
+            <CopyIcon size={1.2} />
+            <span className="text-xs sm:text-sm">کپی لینک</span>
           </Button>
         </div>
         <div>
           <Button size="full" type={2}>
-            <ShaireIcon2 size={1.5} />
-            اشتراک
+            <ShaireIcon2 size={1.2} />
+            <span className="text-xs sm:text-sm">اشتراک</span>
           </Button>
         </div>
       </div>
@@ -603,28 +603,28 @@ function ShareActions() {
 
 function ArticleActions() {
   return (
-    <div className="border-brand-7 rounded-2xl border bg-white p-5">
-      <div className="text-brand-2 mb-4 flex items-center space-x-1 font-semibold">
-        <BookmarkIcon size={1.5} />
-        <p>اقدامات</p>
+    <div className="border-brand-7 rounded-2xl border bg-white p-4 sm:p-5">
+      <div className="text-brand-2 mb-3 flex items-center space-x-1 font-semibold sm:mb-4">
+        <BookmarkIcon size={1.3} />
+        <p className="text-sm sm:text-base">اقدامات</p>
       </div>
-      <div className="space-y-4">
+      <div className="space-y-3 sm:space-y-4">
         <div>
           <Button size="full">
-            <BookmarkIcon size={1.4} />
-            ذخیره مقاله
+            <BookmarkIcon size={1.2} />
+            <span className="text-xs sm:text-sm">ذخیره مقاله</span>
           </Button>
         </div>
         <div>
           <Button size="full" type={2}>
-            <CommentIcon size={1.4} />
-            نظر
+            <CommentIcon size={1.2} />
+            <span className="text-xs sm:text-sm">نظر</span>
           </Button>
         </div>
         <div>
           <Button size="full" type={2}>
-            <HeartIcon size={1.4} />
-            پسندیدن
+            <HeartIcon size={1.2} />
+            <span className="text-xs sm:text-sm">پسندیدن</span>
           </Button>
         </div>
       </div>
@@ -634,24 +634,24 @@ function ArticleActions() {
 
 function RelatedArticles() {
   return (
-    <div className="border-brand-7 rounded-2xl border bg-white p-5">
-      <div className="text-brand-2 mb-4 flex items-center space-x-1 font-semibold">
-        <LinkIcon size={1.5} />
-        <p>مقالات مرتبط</p>
+    <div className="border-brand-7 rounded-2xl border bg-white p-4 sm:p-5">
+      <div className="text-brand-2 mb-3 flex items-center space-x-1 font-semibold sm:mb-4">
+        <LinkIcon size={1.3} />
+        <p className="text-sm sm:text-base">مقالات مرتبط</p>
       </div>
       <div className="space-y-2">
-        <p className="hover:text-brand-2 flex cursor-pointer items-center gap-2 text-sm duration-300">
-          <FileTextIcon size={1.4} />
+        <p className="hover:text-brand-2 flex cursor-pointer items-center gap-2 text-xs duration-300 sm:text-sm">
+          <FileTextIcon size={1.2} />
           مرور سیستماتیک روش‌های یادگیری نیمه‌نظارتی
         </p>
         <hr className="text-brand-7 mb-2" />
-        <p className="hover:text-brand-2 flex cursor-pointer items-center gap-2 text-sm duration-300">
-          <FileTextIcon size={1.4} />
+        <p className="hover:text-brand-2 flex cursor-pointer items-center gap-2 text-xs duration-300 sm:text-sm">
+          <FileTextIcon size={1.2} />
           کاربرد شبکه‌های عصبی در ترجمه ماشینی فارسی
         </p>
         <hr className="text-brand-7 mb-2" />
-        <p className="hover:text-brand-2 flex cursor-pointer items-center gap-2 text-sm duration-300">
-          <FileTextIcon size={1.4} />
+        <p className="hover:text-brand-2 flex cursor-pointer items-center gap-2 text-xs duration-300 sm:text-sm">
+          <FileTextIcon size={1.2} />
           چالش‌های پردازش زبان‌های کم‌منبع
         </p>
       </div>

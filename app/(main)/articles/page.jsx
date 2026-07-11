@@ -81,25 +81,29 @@ const articles = [
 
 export default function page() {
   return (
-    <section className="mt-18 mb-10">
-      <div className="flex w-full flex-col items-center justify-center gap-5 text-center">
+    <section className="mt-12 mb-6 px-4 sm:mt-18 sm:mb-10 sm:px-0">
+      <div className="flex w-full flex-col items-center justify-center gap-3 text-center sm:gap-5">
         <div>
-          <h4 className="text-brand-2 flex gap-3 text-[2rem] font-bold">
-            <FileTextIcon />
+          <h4 className="text-brand-2 flex gap-2 text-[1.6rem] font-bold sm:gap-3 sm:text-[2rem]">
+            <FileTextIcon size={1.6} />
             مقالات جدید
           </h4>
         </div>
-        <p className="text-brand-4 font-normal">
+        <p className="text-brand-4 text-sm font-normal sm:text-base">
           جدیدترین دستاوردهای علمی و پژوهشی جامعه دانشران را مرور کنید.
         </p>
         <hr className="text-brand-7 w-screen" />
       </div>
-      <SearchBar />
-      <div className="mt-10 flex min-h-screen gap-8">
-        <div className="flex-3/4 space-y-5">
+      <div className="mt-4 sm:mt-6">
+        <SearchBar />
+      </div>
+      <div className="mt-6 flex min-h-screen flex-col gap-6 sm:mt-10 sm:gap-8 lg:flex-row">
+        <div className="flex-3/4 space-y-4 sm:space-y-5">
           <div className="text-brand-2 flex items-center gap-1">
-            <FileTextIcon size={1.3} />
-            <p className="text-lg font-semibold">جدید ترین مقالات</p>
+            <FileTextIcon size={1.1} />
+            <p className="text-base font-semibold sm:text-lg">
+              جدید ترین مقالات
+            </p>
           </div>
           <ArticlesFilter />
           <hr className="text-brand-7 w-full" />
@@ -107,7 +111,7 @@ export default function page() {
           <hr className="text-brand-7 w-full" />
           <ArticlesPagination />
         </div>
-        <div className="sticky top-20 h-fit flex-1/4 space-y-5">
+        <div className="space-y-5 lg:sticky lg:top-20 lg:h-fit lg:flex-1/4">
           <PopularAuthors />
           <HotTopics />
         </div>
