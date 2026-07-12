@@ -4,7 +4,7 @@ import { MoonIcon, PlusIcon } from "@/app/_assets/Icons";
 import Button from "@/app/_components/Button";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import Logo from "@/app/icon.png";
+import Logo from "@/app/_assets/icon.png";
 import Image from "next/image";
 
 export default function AuthHeader() {

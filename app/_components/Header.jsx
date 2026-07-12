@@ -5,7 +5,7 @@ import Link from "next/link";
 import { MoonIcon, PlusIcon } from "../_assets/Icons";
 import Button from "./Button";
 import NavLink from "./NavLink";
-import Logo from "@/app/icon.png";
+import Logo from "@/app/_assets/icon.png";
 import Image from "next/image";
 import MobileMenu from "./MobileMenu";
 

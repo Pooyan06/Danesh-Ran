@@ -18,7 +18,7 @@ import TagsSection from "@/app/_pages/articles/new/TagsSection";
 import WritingTips from "@/app/_pages/articles/new/WritingTips";
 import Link from "next/link";
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://daneshran.ir";
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
 
 export const metadata = {
   title: "ارسال مقاله جدید | دانشران",

@@ -13,7 +13,7 @@ import Button from "@/app/_components/Button";
 import ArticleMain from "@/app/_pages/articles/[articles]/ArticleMain";
 import Link from "next/link";
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://daneshran.ir";
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
 
 const articles = [
   {
