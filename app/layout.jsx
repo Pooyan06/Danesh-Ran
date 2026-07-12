@@ -30,7 +30,7 @@ export const metadata = {
     siteName: "دانشران",
     images: [
       {
-        url: `${siteUrl}/daneshran.webp`,
+        url: `${siteUrl}/daneshran.png`,
         width: 1200,
         height: 630,
         alt: "دانشران",
@@ -42,7 +42,7 @@ export const metadata = {
     title: "دانشران | محیطی برای انتشار مقالات علمی",
     description:
       "دانشران، پلتفرمی جامع برای انتشار، اشتراک‌گذاری و دسترسی به مقالات علمی در ایران",
-    images: [`${siteUrl}/daneshran.webp`],
+    images: [`${siteUrl}/daneshran.png`],
   },
 };
 

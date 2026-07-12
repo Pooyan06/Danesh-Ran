@@ -45,7 +45,7 @@ export const metadata = {
     url: `${siteUrl}/contactus`,
     images: [
       {
-        url: `${siteUrl}/daneshran.webp`,
+        url: `${siteUrl}/daneshran.png`,
         width: 1200,
         height: 630,
         alt: "تماس با دانشران",
@@ -57,7 +57,7 @@ export const metadata = {
     title: "تماس با ما | دانشران",
     description:
       "با تیم پشتیبانی دانشران در ارتباط باشید. سوالات، نظرات و پیشنهادهای خود را با ما در میان بگذارید.",
-    images: [`${siteUrl}/daneshran.webp`],
+    images: [`${siteUrl}/daneshran.png`],
   },
 };
 

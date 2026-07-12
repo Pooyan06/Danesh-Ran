@@ -30,7 +30,7 @@ export const metadata = {
     url: `${siteUrl}/login`,
     images: [
       {
-        url: `${siteUrl}/daneshran.webp`,
+        url: `${siteUrl}/daneshran.png`,
         width: 1200,
         height: 630,
         alt: "ورود به دانشران",
@@ -42,7 +42,7 @@ export const metadata = {
     title: "ورود به حساب کاربری | دانشران",
     description:
       "به حساب کاربری خود در دانشران وارد شوید و به مقالات علمی دسترسی پیدا کنید.",
-    images: [`${siteUrl}/daneshran.webp`],
+    images: [`${siteUrl}/daneshran.png`],
   },
 };
 

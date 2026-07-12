@@ -37,7 +37,7 @@ export const metadata = {
     url: `${siteUrl}/singup`,
     images: [
       {
-        url: `${siteUrl}/daneshran.webp`,
+        url: `${siteUrl}/daneshran.png`,
         width: 1200,
         height: 630,
         alt: "ثبت نام در دانشران",
@@ -49,7 +49,7 @@ export const metadata = {
     title: "ثبت نام در دانشران | به جامعه پژوهشگران بپیوندید",
     description:
       "در دانشران ثبت نام کنید و به جامعه پژوهشگران ایران بپیوندید. مقالات خود را منتشر کنید و از بازخورد متخصصان بهره‌مند شوید.",
-    images: [`${siteUrl}/daneshran.webp`],
+    images: [`${siteUrl}/daneshran.png`],
   },
 };
 

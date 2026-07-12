@@ -39,7 +39,7 @@ export const metadata = {
     url: `${siteUrl}/aboutus`,
     images: [
       {
-        url: `${siteUrl}/daneshran.webp`,
+        url: `${siteUrl}/daneshran.png`,
         width: 1200,
         height: 630,
         alt: "درباره دانشران",
@@ -51,7 +51,7 @@ export const metadata = {
     title: "درباره ما | دانشران",
     description:
       "دانشران یک پلتفرم علمی باز برای انتشار مقالات و ارتباط پژوهشگران ایرانی.",
-    images: [`${siteUrl}/daneshran.webp`],
+    images: [`${siteUrl}/daneshran.png`],
   },
 };
 

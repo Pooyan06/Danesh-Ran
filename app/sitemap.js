@@ -39,7 +39,7 @@ const pages = [
     priority: 0.1,
   },
   {
-    path: "singup",
+    path: "signup",
     lastModified: new Date().toISOString().split("T")[0],
     changeFrequency: "never",
     priority: 0.1,
