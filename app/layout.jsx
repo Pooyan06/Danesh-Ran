@@ -2,7 +2,7 @@ import { Vazirmatn } from "next/font/google";
 import "./globals.css";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
-
+import { GoogleTagManager } from "@next/third-parties/google";
 const vazir = Vazirmatn({
   subsets: ["arabic"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -53,7 +53,10 @@ export default function RootLayout({ children }) {
       dir="rtl"
       className={`${vazir.variable} h-full overflow-x-hidden antialiased`}
     >
-      <body className="bg-brand-1 flex min-h-screen flex-col">{children}</body>
+      <body className="bg-brand-1 flex min-h-screen flex-col">
+        <GoogleTagManager gtmId="GTM-W6NRZPF8" />
+        {children}
+      </body>
       <SpeedInsights />
       <Analytics />
     </html>
