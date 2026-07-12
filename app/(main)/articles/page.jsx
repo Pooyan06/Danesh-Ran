@@ -6,8 +6,48 @@ import SearchBar from "@/app/_components/SearchBar";
 import ArticlesFilter from "@/app/_pages/articles/ArticlesFilter";
 import ArticlesPagination from "@/app/_pages/articles/ArticlesPagination";
 
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://daneshran.ir";
+
 export const metadata = {
-  title: "مقالات جدید",
+  title: "مقالات جدید | دانشران",
+  description:
+    "جدیدترین مقالات علمی و پژوهشی منتشر شده در دانشران را مرور کنید. دسترسی به آخرین یافته‌های علمی در حوزه‌های مختلف.",
+  keywords: [
+    "مقالات جدید",
+    "مقالات علمی",
+    "پژوهش",
+    "دانشران",
+    "مقالات پژوهشی",
+    "علمی",
+  ],
+  authors: [{ name: "پویان فرهادی" }],
+  openGraph: {
+    title: "مقالات جدید | دانشران",
+    description:
+      "جدیدترین مقالات علمی و پژوهشی منتشر شده در دانشران را مرور کنید. دسترسی به آخرین یافته‌های علمی در حوزه‌های مختلف.",
+    type: "website",
+    locale: "fa_IR",
+    siteName: "دانشران",
+    url: `${baseUrl}/articles`,
+    images: [
+      {
+        url: `${baseUrl}/daneshran.webp`,
+        width: 1200,
+        height: 630,
+        alt: "مقالات جدید دانشران",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "مقالات جدید | دانشران",
+    description:
+      "جدیدترین مقالات علمی و پژوهشی منتشر شده در دانشران را مرور کنید.",
+    images: [`${baseUrl}/daneshran.webp`],
+  },
+  alternates: {
+    canonical: `${baseUrl}/articles`,
+  },
 };
 
 const articles = [
@@ -81,41 +121,42 @@ const articles = [
 
 export default function page() {
   return (
-    <section className="mt-12 mb-6 px-4 sm:mt-18 sm:mb-10 sm:px-0">
-      <div className="flex w-full flex-col items-center justify-center gap-3 text-center sm:gap-5">
-        <div>
-          <h4 className="text-brand-2 flex gap-2 text-[1.6rem] font-bold sm:gap-3 sm:text-[2rem]">
-            <FileTextIcon size={1.3} />
-            مقالات جدید
-          </h4>
-        </div>
+    <main className="mt-12 mb-6 px-4 sm:mt-18 sm:mb-10 sm:px-0">
+      <header className="flex w-full flex-col items-center justify-center gap-3 text-center sm:gap-5">
+        <h1 className="text-brand-2 flex gap-2 text-[1.6rem] font-bold sm:gap-3 sm:text-[2rem]">
+          <FileTextIcon size={1.3} aria-hidden="true" />
+          مقالات جدید
+        </h1>
         <p className="text-brand-4 text-sm font-normal sm:text-base">
           جدیدترین دستاوردهای علمی و پژوهشی جامعه دانشران را مرور کنید.
         </p>
         <hr className="text-brand-7 w-screen" />
-      </div>
+      </header>
+
       <div className="mt-4 sm:mt-6">
         <SearchBar />
       </div>
+
       <div className="mt-6 flex min-h-screen flex-col gap-6 sm:mt-10 sm:gap-8 lg:flex-row">
-        <div className="flex-3/4 space-y-4 sm:space-y-5">
+        <section className="flex-3/4 space-y-4 sm:space-y-5">
           <div className="text-brand-2 flex items-center gap-1">
-            <FileTextIcon size={1.1} />
-            <p className="text-base font-semibold sm:text-lg">
+            <FileTextIcon size={1.1} aria-hidden="true" />
+            <h2 className="text-base font-semibold sm:text-lg">
               جدید ترین مقالات
-            </p>
+            </h2>
           </div>
           <ArticlesFilter />
           <hr className="text-brand-7 w-full" />
           <ArticleList articles={articles} />
           <hr className="text-brand-7 w-full" />
           <ArticlesPagination />
-        </div>
-        <div className="space-y-5 lg:sticky lg:top-20 lg:h-fit lg:flex-1/4">
+        </section>
+
+        <aside className="space-y-5 lg:sticky lg:top-20 lg:h-fit lg:flex-1/4">
           <PopularAuthors />
           <HotTopics />
-        </div>
+        </aside>
       </div>
-    </section>
+    </main>
   );
 }

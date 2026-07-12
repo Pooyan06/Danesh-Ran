@@ -11,7 +11,7 @@ import {
 import Button from "@/app/_components/Button";
 import Link from "next/link";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
 
 export const metadata = {
   title: "ورود به دانشران",
@@ -132,7 +132,7 @@ export default function page() {
             حساب کاربری ندارید؟{" "}
           </p>
           <Link
-            href="/singup"
+            href="/signup"
             className="text-brand-2 hover:text-brand-3 text-[0.75rem] font-semibold duration-150 hover:underline sm:text-[0.85rem]"
           >
             همین حالا ثبت‌نام کنید

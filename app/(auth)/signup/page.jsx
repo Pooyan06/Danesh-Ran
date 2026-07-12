@@ -12,7 +12,7 @@ import {
 import Button from "@/app/_components/Button";
 import Link from "next/link";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
 
 export const metadata = {
   title: "ثبت نام در دانشران",
@@ -34,7 +34,7 @@ export const metadata = {
     type: "website",
     locale: "fa_IR",
     siteName: "دانشران",
-    url: `${siteUrl}/singup`,
+    url: `${siteUrl}/signup`,
     images: [
       {
         url: `${siteUrl}/daneshran.png`,

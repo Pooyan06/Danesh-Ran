@@ -34,7 +34,7 @@ export default function AuthHeader() {
         </div>
 
         {pathname.slice(1) === "login" ? (
-          <Link href="/singup" className="flex items-center gap-1 sm:gap-2">
+          <Link href="/signup" className="flex items-center gap-1 sm:gap-2">
             <Button type={1}>
               <PlusIcon size={1} />
               <span className="hidden sm:inline">عضویت</span>

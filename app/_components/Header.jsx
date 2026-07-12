@@ -49,7 +49,7 @@ export default function Header() {
         </button>
 
         <div className="flex items-stretch gap-1 sm:gap-2 lg:gap-3">
-          <Link href="/singup" className="flex flex-1">
+          <Link href="/signup" className="flex flex-1">
             <Button
               type={1}
               className="flex w-full items-center justify-center gap-1 sm:gap-2"

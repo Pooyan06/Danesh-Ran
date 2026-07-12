@@ -20,7 +20,7 @@ import {
 import Button from "@/app/_components/Button";
 import Input from "@/app/_components/Input";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
 
 export const metadata = {
   title: "دانشران",

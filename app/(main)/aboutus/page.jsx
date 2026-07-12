@@ -14,7 +14,7 @@ import {
 import Button from "@/app/_components/Button";
 import Link from "next/link";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
 
 export const metadata = {
   title: "درباره ما",
@@ -270,7 +270,7 @@ function AboutCTA() {
         با عضویت در دانشران، مقالات خود را منتشر کنید و از بازخورد متخصصان
         بهره‌مند شوید.
       </p>
-      <Link href={"/singup"}>
+      <Link href={"/signup"}>
         <Button type={4} size="small">
           ثبت نام رایگان
         </Button>

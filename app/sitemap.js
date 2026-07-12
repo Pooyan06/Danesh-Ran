@@ -1,6 +1,5 @@
-const baseUrl = "https://daneshran.ir";
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
 
-// لیست تمام صفحات ثابت
 const pages = [
   {
     path: "",

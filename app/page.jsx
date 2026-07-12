@@ -3,7 +3,7 @@ import Header from "./_components/Header";
 import ContentSection from "./_pages/home/ContentSection";
 import HeroSection from "./_pages/home/HeroSection";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
 
 export const metadata = {
   title: "دانشران | محیطی برای انتشار مقالات علمی",

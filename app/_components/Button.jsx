@@ -16,13 +16,12 @@ export default function Button({
   };
 
   const sizes = {
-    default:
-      "px-3 py-2 text-sm rounded-lg sm:px-5 sm:py-3 sm:text-base sm:rounded-xl",
+    default: "px-3 py-3 text-sm rounded-lg sm:px-5 sm:text-base sm:rounded-xl",
     small: "px-2 py-1 text-xs rounded-md sm:px-3 sm:py-1.5 sm:text-sm",
     large:
       "px-4 py-3 text-base rounded-lg sm:px-7 sm:py-4 sm:text-lg sm:rounded-xl",
-    full: "w-full rounded-lg py-2 text-xs sm:rounded-xl sm:py-2 sm:text-sm",
-    full2: "w-full rounded-md py-2 text-xs sm:rounded-md sm:py-2 sm:text-sm",
+    full: "w-full rounded-lg py-3 text-xs sm:rounded-xl sm:text-sm",
+    full2: "w-full rounded-md py-3 text-xs sm:rounded-md sm:text-sm",
   };
 
   return (

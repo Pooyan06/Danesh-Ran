@@ -2,7 +2,7 @@
 User-agent: *
 Allow: /
 Disallow: /login
-Disallow: /singup
+Disallow: /signup
 Disallow: /api/
 
 Sitemap: https://daneshran.vercel.app/sitemap.xml
