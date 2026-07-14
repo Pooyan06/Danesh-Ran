@@ -1,65 +1,67 @@
+import { getArticles } from "./_services/articles";
+
+export const revalidate = 3600;
+
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
 
-const pages = [
+const staticPages = [
   {
     path: "",
-    lastModified: new Date().toISOString().split("T")[0],
     changeFrequency: "daily",
     priority: 1.0,
   },
   {
     path: "articles",
-    lastModified: new Date().toISOString().split("T")[0],
     changeFrequency: "daily",
     priority: 0.9,
   },
   {
     path: "articles/new",
-    lastModified: new Date().toISOString().split("T")[0],
     changeFrequency: "weekly",
     priority: 0.7,
   },
   {
     path: "aboutus",
-    lastModified: new Date().toISOString().split("T")[0],
     changeFrequency: "monthly",
     priority: 0.6,
   },
   {
     path: "contactus",
-    lastModified: new Date().toISOString().split("T")[0],
     changeFrequency: "monthly",
     priority: 0.5,
   },
   {
     path: "login",
-    lastModified: new Date().toISOString().split("T")[0],
     changeFrequency: "never",
     priority: 0.1,
   },
   {
     path: "signup",
-    lastModified: new Date().toISOString().split("T")[0],
     changeFrequency: "never",
     priority: 0.1,
   },
 ];
 
-// دیتای مقالات (برای صفحات داینامیک)
-const articles = [
-  { id: 1, date: "2024-03-25" },
-  { id: 2, date: "2024-03-22" },
-  { id: 3, date: "2024-03-20" },
-  { id: 4, date: "2024-03-18" },
-  { id: 5, date: "2024-03-15" },
-  { id: 6, date: "2024-03-12" },
-];
+export default async function sitemap() {
+  let articles = [];
 
-export default function sitemap() {
-  // صفحات ثابت
-  const staticPages = pages.map((page) => ({
+  try {
+    const { articles: result } = await getArticles();
+    articles = result || [];
+
+    if (process.env.NODE_ENV === "development") {
+      console.log(`📊 Sitemap: ${articles.length} articles included`);
+    }
+  } catch (error) {
+    console.error("❌ Error fetching articles for sitemap:", error);
+    articles = [];
+  }
+
+  const today = new Date().toISOString().split("T")[0];
+
+  const staticPagesMap = staticPages.map((page) => ({
     url: `${baseUrl}/${page.path}`,
-    lastModified: page.lastModified,
+    lastModified: today,
     changeFrequency: page.changeFrequency,
     priority: page.priority,
   }));
@@ -67,10 +69,11 @@ export default function sitemap() {
   // صفحات داینامیک (مقالات)
   const articlePages = articles.map((article) => ({
     url: `${baseUrl}/articles/${article.id}`,
-    lastModified: article.date,
+    lastModified:
+      article.updated_at || article.created_at || article.date || today,
     changeFrequency: "weekly",
     priority: 0.8,
   }));
 
-  return [...staticPages, ...articlePages];
+  return [...staticPagesMap, ...articlePages];
 }
