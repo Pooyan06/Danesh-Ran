@@ -1,7 +1,5 @@
 export const revalidate = 3600;
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
-
 const staticPages = [
   {
     path: "",
@@ -34,11 +32,14 @@ export default async function sitemap() {
   let articles = [];
 
   try {
-    const res = await fetch(`${baseUrl}/api/articles`, {
-      next: {
-        revalidate: 3600,
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_SITE_URL}/api/articles`,
+      {
+        next: {
+          revalidate: 3600,
+        },
       },
-    });
+    );
 
     if (!res.ok) {
       throw new Error(`Failed to fetch articles. Status: ${res.status}`);
@@ -60,14 +61,14 @@ export default async function sitemap() {
   const today = new Date().toISOString();
 
   const staticPagesMap = staticPages.map((page) => ({
-    url: `${baseUrl}/${page.path}`,
+    url: `${process.env.NEXT_PUBLIC_SITE_URL}/${page.path}`,
     lastModified: today,
     changeFrequency: page.changeFrequency,
     priority: page.priority,
   }));
 
   const articlePages = articles.map((article) => ({
-    url: `${baseUrl}/articles/${article.id}`,
+    url: `${process.env.NEXT_PUBLIC_SITE_URL}/articles/${article.id}`,
     lastModified:
       article.updated_at || article.created_at || article.date || today,
     changeFrequency: "weekly",
