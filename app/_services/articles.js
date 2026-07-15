@@ -1,12 +1,33 @@
 import supabase from "./supabase";
 
-export async function getArticles() {
-  let { data: articles, error } = await supabase.from("articles").select("*");
+export async function getArticlesFromDB({ limit = 10, page } = {}) {
+  let query = supabase
+    .from("articles")
+    .select("*", { count: "exact" })
+    .order("created_at", { ascending: false });
 
-  return { articles, error };
+  if (limit) {
+    query = query.limit(limit);
+  }
+
+  if (page) {
+    const pageSize = limit ?? 10;
+    const startRange = (page - 1) * pageSize;
+    const endRange = startRange + pageSize - 1;
+
+    query = query.range(startRange, endRange);
+  }
+
+  const { data: articles, error, count } = await query;
+
+  return {
+    articles,
+    count,
+    error,
+  };
 }
 
-export async function getArticleById(id) {
+export async function getArticleById({ id }) {
   let { data: article, error } = await supabase
     .from("articles")
     .select("*,sections(*),comments(*)")

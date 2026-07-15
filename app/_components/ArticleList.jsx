@@ -1,6 +1,9 @@
+import { notFound } from "next/navigation";
 import ArticleCard from "./ArticleCard";
 
 export default function ArticleList({ articles }) {
+  if (!articles) return notFound();
+
   return (
     <section className="space-y-4" aria-label="لیست مقالات">
       <div className="flex flex-col space-y-5">

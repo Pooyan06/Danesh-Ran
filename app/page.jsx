@@ -5,6 +5,8 @@ import HeroSection from "./_pages/home/HeroSection";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
 
+export const revalidate = 3600;
+
 export const metadata = {
   title: "دانشران | محیطی برای انتشار مقالات علمی",
   description:

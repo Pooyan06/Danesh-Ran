@@ -11,7 +11,6 @@ import {
 } from "@/app/_assets/Icons";
 import Button from "@/app/_components/Button";
 import ArticleMain from "@/app/_pages/articles/[articles]/ArticleMain";
-import { getArticleById, getArticles } from "@/app/_services/articles";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -23,7 +22,16 @@ export async function generateMetadata({ params }) {
   const { articles: articleIdParam } = await params;
   const articleId = Number(articleIdParam);
 
-  const { article } = await getArticleById(articleId);
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_SITE_URL}/api/articles/${articleId}`,
+    {
+      next: {
+        revalidate: 3600,
+      },
+    },
+  );
+
+  const { article } = await res.json();
 
   if (!article) {
     return {
@@ -69,7 +77,13 @@ export async function generateMetadata({ params }) {
 }
 
 export async function generateStaticParams() {
-  const { articles } = await getArticles();
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/articles`, {
+    next: {
+      revalidate: 3600,
+    },
+  });
+
+  const { articles } = await res.json();
 
   return articles.map((article) => ({
     articles: String(article.id),
@@ -79,7 +93,16 @@ export async function generateStaticParams() {
 export default async function page({ params }) {
   const { articles: article_id } = await params;
 
-  const { article: currentArticle } = await getArticleById(article_id);
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_SITE_URL}/api/articles/${article_id}`,
+    {
+      next: {
+        revalidate: 3600,
+      },
+    },
+  );
+
+  const { article: currentArticle } = await res.json();
 
   if (!currentArticle) {
     return notFound();

@@ -5,7 +5,6 @@ import PopularAuthors from "@/app/_components/PopularAuthors";
 import SearchBar from "@/app/_components/SearchBar";
 import ArticlesFilter from "@/app/_pages/articles/ArticlesFilter";
 import ArticlesPagination from "@/app/_pages/articles/ArticlesPagination";
-import { getArticles } from "@/app/_services/articles";
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
 
@@ -51,8 +50,19 @@ export const metadata = {
   },
 };
 
-export default async function page() {
-  const { articles } = await getArticles();
+export default async function page({ searchParams }) {
+  const { page } = await searchParams;
+
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_SITE_URL}/api/articles?page=${page ?? 1}`,
+    {
+      next: {
+        revalidate: 3600,
+      },
+    },
+  );
+
+  const { articles, count: articleCount } = await res.json();
 
   return (
     <main className="mt-12 mb-6 px-4 sm:mt-18 sm:mb-10 sm:px-0">
@@ -83,7 +93,7 @@ export default async function page() {
           <hr className="text-brand-7 w-full" />
           <ArticleList articles={articles} />
           <hr className="text-brand-7 w-full" />
-          <ArticlesPagination />
+          <ArticlesPagination page={page} articleCount={articleCount} />
         </section>
 
         <aside className="space-y-5 lg:sticky lg:top-20 lg:h-fit lg:flex-1/4">

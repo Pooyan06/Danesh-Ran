@@ -4,10 +4,15 @@ import HotTopics from "@/app/_components/HotTopics";
 import PopularAuthors from "@/app/_components/PopularAuthors";
 import { FileTextIcon } from "@/app/_assets/Icons";
 import Link from "next/link";
-import { getArticles } from "@/app/_services/articles";
 
 export default async function ContentSection() {
-  const { articles } = await getArticles();
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/articles`, {
+    next: {
+      revalidate: 3600,
+    },
+  });
+
+  const { articles } = await res.json();
 
   return (
     <section className="flex flex-col gap-8 lg:flex-row">

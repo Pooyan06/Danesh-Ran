@@ -1,5 +1,3 @@
-import { getArticles } from "./_services/articles";
-
 export const revalidate = 3600;
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
@@ -46,7 +44,17 @@ export default async function sitemap() {
   let articles = [];
 
   try {
-    const { articles: result } = await getArticles();
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_SITE_URL}/api/articles`,
+      {
+        next: {
+          revalidate: 3600,
+        },
+      },
+    );
+
+    const { articles, count: articleCount } = await res.json();
+
     articles = result || [];
 
     if (process.env.NODE_ENV === "development") {
