@@ -12,7 +12,7 @@ export default function Footer() {
           <ul className="space-y-2.5 sm:space-y-3 lg:space-y-3.5">
             <li>
               <Link
-                href="/help/submit"
+                href="#"
                 className="text-brand-4 hover:text-brand-2 text-sm transition-colors duration-200 sm:text-base"
               >
                 نحوه ارسال مقاله
@@ -20,7 +20,7 @@ export default function Footer() {
             </li>
             <li>
               <Link
-                href="/help/guide"
+                href="#"
                 className="text-brand-4 hover:text-brand-2 text-sm transition-colors duration-200 sm:text-base"
               >
                 راهنمای نویسندگان
@@ -28,7 +28,7 @@ export default function Footer() {
             </li>
             <li>
               <Link
-                href="/help/faq"
+                href="#"
                 className="text-brand-4 hover:text-brand-2 text-sm transition-colors duration-200 sm:text-base"
               >
                 سوالات متداول
@@ -52,7 +52,7 @@ export default function Footer() {
           <ul className="space-y-2.5 sm:space-y-3 lg:space-y-3.5">
             <li>
               <Link
-                href="/rules/creative-commons"
+                href="#"
                 className="text-brand-4 hover:text-brand-2 text-sm transition-colors duration-200 sm:text-base"
               >
                 مجوز Creative Commons
@@ -60,7 +60,7 @@ export default function Footer() {
             </li>
             <li>
               <Link
-                href="/rules/intellectual-property"
+                href="#"
                 className="text-brand-4 hover:text-brand-2 text-sm transition-colors duration-200 sm:text-base"
               >
                 حقوق مالکیت فکری
@@ -68,7 +68,7 @@ export default function Footer() {
             </li>
             <li>
               <Link
-                href="/rules/ethics"
+                href="#"
                 className="text-brand-4 hover:text-brand-2 text-sm transition-colors duration-200 sm:text-base"
               >
                 اخلاق انتشار
@@ -76,7 +76,7 @@ export default function Footer() {
             </li>
             <li>
               <Link
-                href="/rules/terms"
+                href="#"
                 className="text-brand-4 hover:text-brand-2 text-sm transition-colors duration-200 sm:text-base"
               >
                 شرایط استفاده
@@ -85,7 +85,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        <div className="min-w-[140px] flex-1 sm:flex-none">
+        <div className="min-w-35 flex-1 sm:flex-none">
           <h4 className="text-brand-2 mb-3 text-sm font-semibold sm:text-base lg:mb-5">
             تماس با ما
           </h4>
