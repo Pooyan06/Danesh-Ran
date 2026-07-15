@@ -1,6 +1,6 @@
 export const revalidate = 3600;
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
 const staticPages = [
   {
@@ -28,44 +28,36 @@ const staticPages = [
     changeFrequency: "monthly",
     priority: 0.5,
   },
-  {
-    path: "login",
-    changeFrequency: "never",
-    priority: 0.1,
-  },
-  {
-    path: "signup",
-    changeFrequency: "never",
-    priority: 0.1,
-  },
 ];
 
 export default async function sitemap() {
   let articles = [];
 
   try {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_SITE_URL}/api/articles`,
-      {
-        next: {
-          revalidate: 3600,
-        },
+    const res = await fetch(`${baseUrl}/api/articles`, {
+      next: {
+        revalidate: 3600,
       },
-    );
+    });
 
-    const { articles, count: articleCount } = await res.json();
+    if (!res.ok) {
+      throw new Error(`Failed to fetch articles. Status: ${res.status}`);
+    }
 
-    articles = result || [];
+    const result = await res.json();
+
+    articles = result.articles || [];
 
     if (process.env.NODE_ENV === "development") {
       console.log(`📊 Sitemap: ${articles.length} articles included`);
     }
   } catch (error) {
     console.error("❌ Error fetching articles for sitemap:", error);
+
     articles = [];
   }
 
-  const today = new Date().toISOString().split("T")[0];
+  const today = new Date().toISOString();
 
   const staticPagesMap = staticPages.map((page) => ({
     url: `${baseUrl}/${page.path}`,
@@ -74,7 +66,6 @@ export default async function sitemap() {
     priority: page.priority,
   }));
 
-  // صفحات داینامیک (مقالات)
   const articlePages = articles.map((article) => ({
     url: `${baseUrl}/articles/${article.id}`,
     lastModified:
