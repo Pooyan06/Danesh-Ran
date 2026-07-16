@@ -127,7 +127,7 @@ export default function Footer() {
 
         <div className="flex justify-center gap-2 sm:gap-3">
           <a
-            href="https://t.me/daneshran"
+            href="https://t.me/pooyan_f"
             target="_blank"
             rel="noopener noreferrer"
             className="text-brand-2 bg-brand-11 hover:text-brand-1 hover:bg-brand-2 rounded-full p-1.5 transition-all duration-300 hover:scale-110 sm:p-2"
@@ -136,7 +136,7 @@ export default function Footer() {
             <TelegramIcon size={1.2} />
           </a>
           <a
-            href="https://instagram.com/daneshran"
+            href="https://www.instagram.com/pooyan_f06"
             target="_blank"
             rel="noopener noreferrer"
             className="text-brand-2 bg-brand-11 hover:text-brand-1 hover:bg-brand-2 rounded-full p-1.5 transition-all duration-300 hover:scale-110 sm:p-2"

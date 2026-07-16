@@ -19,7 +19,6 @@ import {
 } from "@/app/_assets/Icons";
 import Button from "@/app/_components/Button";
 import Input from "@/app/_components/Input";
-import Link from "next/link";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
 
@@ -210,24 +209,30 @@ function ContactSocial() {
         <h2 className="text-lg font-semibold sm:text-xl">شبکه‌های اجتماعی</h2>
       </div>
       <div className="flex flex-wrap gap-2 sm:gap-0 sm:space-x-3">
-        <Link href="https://t.me/pooyan_f">
+        <a href="https://t.me/pooyan_f" aria-label="تلگرام دانشران">
           <Button size="small" type={2}>
             <TelegramIcon size={1.2} />
             <span className="text-xs sm:text-sm">تلگرام</span>
           </Button>
-        </Link>
-        <Link href="https://www.instagram.com/pooyan_f06">
+        </a>
+        <a
+          href="https://www.instagram.com/pooyan_f06"
+          aria-label="اینستاگرام دانشران"
+        >
           <Button size="small" type={2}>
             <InstagramIcon size={1.2} />
             <span className="text-xs sm:text-sm">اينستاگرام</span>
           </Button>
-        </Link>
-        <Link href="https://linkedin.com/in/pooyan-farhadi">
+        </a>
+        <a
+          href="https://linkedin.com/company/daneshran"
+          aria-label="لینکدین دانشران"
+        >
           <Button size="small" type={2}>
             <LinkedinIcon size={1.2} />
             <span className="text-xs sm:text-sm">لينكدين</span>
           </Button>
-        </Link>
+        </a>
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 import { getArticlesFromDB } from "./_services/articles";
 
-export const revalidate = 3600;
+export const dynamic = "force-dynamic";
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
 
