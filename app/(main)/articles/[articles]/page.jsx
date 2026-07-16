@@ -11,7 +11,9 @@ import {
 } from "@/app/_assets/Icons";
 import Button from "@/app/_components/Button";
 import ArticleMain from "@/app/_pages/articles/[articles]/ArticleMain";
+import ShareActions from "@/app/_pages/articles/[articles]/ShareActions";
 import { getArticlesFromDB } from "@/app/_services/articles";
+import { headers } from "next/headers";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -86,10 +88,14 @@ export async function generateStaticParams() {
 }
 
 export default async function page({ params }) {
-  const { articles: article_id } = await params;
+  const { articles: articleId } = await params;
+  const headersList = await headers();
+  const host = headersList.get("host");
+  const protocol = process.env.NODE_ENV === "development" ? "http" : "https";
+  const fullUrl = `${protocol}://${host}/articles/${articleId}`;
 
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_SITE_URL}/api/articles/${article_id}`,
+    `${process.env.NEXT_PUBLIC_SITE_URL}/api/articles/${articleId}`,
     {
       next: {
         revalidate: 3600,
@@ -119,7 +125,7 @@ export default async function page({ params }) {
         <ArticleMain article={currentArticle} />
         <aside className="space-y-5 lg:sticky lg:top-20 lg:h-fit lg:flex-1/4">
           <ArticleInfo />
-          <ShareActions />
+          <ShareActions fullUrl={fullUrl} />
           <ArticleActions />
           <RelatedArticles />
         </aside>
@@ -161,27 +167,6 @@ function ArticleInfo() {
           <dd className="text-brand-2">تایید شده</dd>
         </div>
       </dl>
-    </section>
-  );
-}
-
-function ShareActions() {
-  return (
-    <section className="border-brand-7 rounded-2xl border bg-white p-4 sm:p-5">
-      <h2 className="text-brand-2 mb-3 flex items-center space-x-1 font-semibold sm:mb-4">
-        <ShareIcon size={1.4} aria-hidden="true" />
-        <span className="text-sm sm:text-base">اشتراک‌گذاری</span>
-      </h2>
-      <div className="space-y-3 sm:space-y-4">
-        <Button size="full" type={2}>
-          <CopyIcon size={1.2} aria-hidden="true" />
-          <span className="text-xs sm:text-sm">کپی لینک</span>
-        </Button>
-        <Button size="full" type={2}>
-          <ShaireIcon2 size={1.2} aria-hidden="true" />
-          <span className="text-xs sm:text-sm">اشتراک</span>
-        </Button>
-      </div>
     </section>
   );
 }

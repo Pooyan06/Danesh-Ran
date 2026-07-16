@@ -1,6 +1,6 @@
 import supabase from "./supabase";
 
-export async function getArticlesFromDB({ limit = 10, page } = {}) {
+export async function getArticlesFromDB({ limit, page } = {}) {
   let query = supabase
     .from("articles")
     .select("*", { count: "exact" })
