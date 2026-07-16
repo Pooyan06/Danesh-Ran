@@ -16,123 +16,178 @@ import { notFound } from "next/navigation";
 
 export const revalidate = 3600;
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
+async function fetchArticle(id) {
+  try {
+    const baseUrl =
+      process.env.NEXT_PUBLIC_SITE_URL ||
+      (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "");
+
+    if (process.env.NEXT_PHASE === "phase-production-build") {
+      return null;
+    }
+
+    const res = await fetch(`${baseUrl}/api/articles/${id}`, {
+      next: { revalidate: 3600 },
+      signal: AbortSignal.timeout(5000),
+    });
+
+    if (!res.ok) return null;
+
+    const data = await res.json();
+    return data.article || null;
+  } catch (error) {
+    console.warn(`⚠️ Could not fetch article ${id}:`, error.message);
+    return null;
+  }
+}
+
+async function fetchArticles() {
+  try {
+    const baseUrl =
+      process.env.NEXT_PUBLIC_SITE_URL ||
+      (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "");
+
+    if (process.env.NEXT_PHASE === "phase-production-build") {
+      return [];
+    }
+
+    const res = await fetch(`${baseUrl}/api/articles`, {
+      next: { revalidate: 3600 },
+      signal: AbortSignal.timeout(5000),
+    });
+
+    if (!res.ok) return [];
+
+    const data = await res.json();
+    return data.articles || [];
+  } catch (error) {
+    console.warn("⚠️ Could not fetch articles list:", error.message);
+    return [];
+  }
+}
 
 export async function generateMetadata({ params }) {
   const { articles: articleIdParam } = await params;
   const articleId = Number(articleIdParam);
 
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_SITE_URL}/api/articles/${articleId}`,
-    {
-      next: {
-        revalidate: 3600,
-      },
-    },
-  );
+  try {
+    const article = await fetchArticle(articleId);
 
-  const { article } = await res.json();
+    if (!article) {
+      return {
+        title: "مقاله یافت نشد | دانشران",
+        description: "مقاله مورد نظر در دانشران یافت نشد",
+        robots: "noindex, follow",
+      };
+    }
 
-  if (!article) {
+    const baseUrl =
+      process.env.NEXT_PUBLIC_SITE_URL ||
+      (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "");
+
     return {
-      title: "مقاله یافت نشد | دانشران",
-      description: "مقاله مورد نظر در دانشران یافت نشد",
-      robots: "noindex, follow",
+      title: `${article.title} | دانشران`,
+      description: article.abstract || article.description || "",
+      keywords: [article.tag, "مقاله علمی", "دانشران", "پژوهش", "مقالات علمی"],
+      authors: [{ name: article.author || "دانشران" }],
+      openGraph: {
+        title: article.title,
+        description: article.abstract || article.description || "",
+        type: "article",
+        publishedTime: article.date || new Date().toISOString(),
+        authors: [article.author || "دانشران"],
+        tags: [article.tag],
+        siteName: "دانشران",
+        url: `${baseUrl}/articles/${article.id}`,
+        images: [
+          {
+            url: `${baseUrl}/daneshran.webp`,
+            width: 1200,
+            height: 630,
+            alt: article.title,
+          },
+        ],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: article.title,
+        description: article.abstract || article.description || "",
+        images: [`${baseUrl}/daneshran.webp`],
+      },
+      alternates: {
+        canonical: `${baseUrl}/articles/${article.id}`,
+      },
+    };
+  } catch (error) {
+    console.warn("⚠️ Could not generate metadata:", error.message);
+    return {
+      title: "مقاله | دانشران",
+      description: "مشاهده مقاله در دانشران",
     };
   }
-
-  return {
-    title: `${article.title} | دانشران`,
-    description: article.abstract,
-    keywords: [article.tag, "مقاله علمی", "دانشران", "پژوهش", "مقالات علمی"],
-    authors: [{ name: article.author }],
-    openGraph: {
-      title: article.title,
-      description: article.abstract,
-      type: "article",
-      publishedTime: article.date,
-      authors: [article.author],
-      tags: [article.tag],
-      siteName: "دانشران",
-      url: `${baseUrl}/articles/${article.id}`,
-      images: [
-        {
-          url: `${baseUrl}/daneshran.webp`,
-          width: 1200,
-          height: 630,
-          alt: article.title,
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: article.title,
-      description: article.abstract,
-      images: [`${baseUrl}/daneshran.webp`],
-    },
-    alternates: {
-      canonical: `${baseUrl}/articles/${article.id}`,
-    },
-  };
 }
 
+// ✅ generateStaticParams - با error handling و بازگشت آرایه خالی در build
 export async function generateStaticParams() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/articles`, {
-    next: {
-      revalidate: 3600,
-    },
-  });
+  try {
+    // در زمان build، آرایه خالی برگردان
+    if (process.env.NEXT_PHASE === "phase-production-build") {
+      console.log("🔨 Build time: Skipping generateStaticParams");
+      return [];
+    }
 
-  const { articles } = await res.json();
+    const articles = await fetchArticles();
 
-  return articles.map((article) => ({
-    articles: String(article.id),
-  }));
+    return articles.map((article) => ({
+      articles: String(article.id),
+    }));
+  } catch (error) {
+    console.warn("⚠️ Could not generate static params:", error.message);
+    return [];
+  }
 }
 
+// ✅ صفحه اصلی - با error handling
 export default async function page({ params }) {
   const { articles: article_id } = await params;
 
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_SITE_URL}/api/articles/${article_id}`,
-    {
-      next: {
-        revalidate: 3600,
-      },
-    },
-  );
+  try {
+    const article = await fetchArticle(article_id);
 
-  const { article: currentArticle } = await res.json();
+    if (!article) {
+      return notFound();
+    }
 
-  if (!currentArticle) {
+    return (
+      <article className="mt-12 mb-6 px-4 sm:mt-18 sm:mb-10 sm:px-0">
+        <header className="flex w-full flex-col items-center justify-center gap-3 text-center sm:gap-5">
+          <h1 className="text-brand-2 flex items-center gap-2 text-[1.6rem] font-bold sm:gap-3 sm:text-[2rem]">
+            <FileTextIcon size={1.6} aria-hidden="true" />
+            مشاهده مقاله
+          </h1>
+          <p className="text-brand-4 text-sm font-normal sm:text-base">
+            متن کامل مقاله را مطالعه کنید و با جامعه علمی تعامل داشته باشید.
+          </p>
+          <hr className="text-brand-7 w-screen" />
+        </header>
+        <div className="mt-6 flex min-h-screen flex-col gap-6 sm:mt-10 sm:gap-8 lg:flex-row">
+          <ArticleMain article={article} />
+          <aside className="space-y-5 lg:sticky lg:top-20 lg:h-fit lg:flex-1/4">
+            <ArticleInfo />
+            <ShareActions />
+            <ArticleActions />
+            <RelatedArticles />
+          </aside>
+        </div>
+      </article>
+    );
+  } catch (error) {
+    console.error("❌ Error loading article:", error);
     return notFound();
   }
-
-  return (
-    <article className="mt-12 mb-6 px-4 sm:mt-18 sm:mb-10 sm:px-0">
-      <header className="flex w-full flex-col items-center justify-center gap-3 text-center sm:gap-5">
-        <h1 className="text-brand-2 flex items-center gap-2 text-[1.6rem] font-bold sm:gap-3 sm:text-[2rem]">
-          <FileTextIcon size={1.6} aria-hidden="true" />
-          مشاهده مقاله
-        </h1>
-        <p className="text-brand-4 text-sm font-normal sm:text-base">
-          متن کامل مقاله را مطالعه کنید و با جامعه علمی تعامل داشته باشید.
-        </p>
-        <hr className="text-brand-7 w-screen" />
-      </header>
-      <div className="mt-6 flex min-h-screen flex-col gap-6 sm:mt-10 sm:gap-8 lg:flex-row">
-        <ArticleMain article={currentArticle} />
-        <aside className="space-y-5 lg:sticky lg:top-20 lg:h-fit lg:flex-1/4">
-          <ArticleInfo />
-          <ShareActions />
-          <ArticleActions />
-          <RelatedArticles />
-        </aside>
-      </div>
-    </article>
-  );
 }
 
+// کامپوننت‌های کمکی (بدون تغییر)
 function ArticleInfo() {
   return (
     <section className="border-brand-7 rounded-2xl border bg-white p-4 sm:p-5">
