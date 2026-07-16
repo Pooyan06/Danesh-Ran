@@ -11,6 +11,7 @@ import {
 } from "@/app/_assets/Icons";
 import Button from "@/app/_components/Button";
 import ArticleMain from "@/app/_pages/articles/[articles]/ArticleMain";
+import { getArticlesFromDB } from "@/app/_services/articles";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -77,13 +78,7 @@ export async function generateMetadata({ params }) {
 }
 
 export async function generateStaticParams() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/articles`, {
-    next: {
-      revalidate: 3600,
-    },
-  });
-
-  const { articles } = await res.json();
+  const { articles } = await getArticlesFromDB();
 
   return articles.map((article) => ({
     articles: String(article.id),
