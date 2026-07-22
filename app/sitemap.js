@@ -1,44 +1,33 @@
 import { getArticlesFromDB } from "./_services/articles";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
 
 const staticPages = [
   {
     path: "",
+    lastModified: "2026-07-05",
     changeFrequency: "daily",
     priority: 1.0,
   },
   {
     path: "articles",
+    lastModified: "2026-07-07",
     changeFrequency: "daily",
     priority: 0.9,
   },
   {
-    path: "articles/new",
-    changeFrequency: "weekly",
-    priority: 0.7,
-  },
-  {
     path: "aboutus",
+    lastModified: "2026-07-08",
     changeFrequency: "monthly",
     priority: 0.6,
   },
   {
     path: "contactus",
+    lastModified: "2026-07-08",
     changeFrequency: "monthly",
     priority: 0.5,
-  },
-  {
-    path: "login",
-    changeFrequency: "never",
-    priority: 0.1,
-  },
-  {
-    path: "signup",
-    changeFrequency: "never",
-    priority: 0.1,
   },
 ];
 
@@ -57,20 +46,21 @@ export default async function sitemap() {
     articles = [];
   }
 
-  const today = new Date().toISOString().split("T")[0];
-
+  // صفحات ثابت با تاریخ‌های واقعی
   const staticPagesMap = staticPages.map((page) => ({
     url: `${baseUrl}/${page.path}`,
-    lastModified: today,
+    lastModified: page.lastModified, // استفاده از تاریخ واقعی هر صفحه
     changeFrequency: page.changeFrequency,
     priority: page.priority,
   }));
 
-  // صفحات داینامیک (مقالات)
   const articlePages = articles.map((article) => ({
     url: `${baseUrl}/articles/${article.id}`,
     lastModified:
-      article.updated_at || article.created_at || article.date || today,
+      article.updated_at ||
+      article.created_at ||
+      article.date ||
+      new Date().toISOString().split("T")[0],
     changeFrequency: "weekly",
     priority: 0.8,
   }));
